@@ -1,0 +1,31 @@
+.header {
+  position: absolute;
+  padding: 43px 34px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.footer {
+  background: #F9F2E6;
+  text-align: center;
+  padding: 60px 40px 80px;
+}
+.listHead {
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.listItem {
+  color: #858080;
+  font-size: 15px;
+  font-weight: 600;
+}
+.icons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  padding: 10px 0;
+}
+.space {
+  padding-bottom: 40px;
+}
