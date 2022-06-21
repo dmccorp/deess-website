@@ -1,0 +1,40 @@
+.hero {
+  background: linear-gradient(73.36deg, #FBF3E5 6.91%, #F4F0E9 99.81%);
+  height: 100vh;
+  font-family: 'DM Serif Display';
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-weight: 400;
+  font-size: 57px;
+  margin: 0;
+  max-width: 600px;
+}
+
+@media screen and (min-width: 800px) {
+  .hero h1 {
+    font-size: 130px;
+    line-height: 120px;
+  }
+}
+
+.imgLeft {
+  position: absolute;
+  left: 0;
+  top: 20%;
+}
+
+.imgRight {
+  position: absolute;
+  right: 0;
+  top: 70%;
+}
+
+
+.limHead {
+  padding: 0 40px;
+}

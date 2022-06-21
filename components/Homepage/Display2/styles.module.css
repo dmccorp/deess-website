@@ -1,0 +1,125 @@
+.section {
+  text-align: center;
+  padding-bottom: 80px;
+  overflow: hidden;
+  padding-top: 40px;
+}
+
+@media screen and (min-width: 800px) {
+  .section {
+    text-align: left;
+    padding-top: 80px;
+  }
+}
+
+.section p {
+  font-weight: 400;
+  font-size: 20px;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding-bottom: 40px;
+}
+
+@media screen and (min-width: 800px) {
+  .grid {
+    padding-bottom: 80px;
+  }
+
+  .grid.inlineL {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  gap: 10px;
+  padding-bottom: 40px;
+}
+@media screen and (min-width: 800px) {
+  .link {
+    justify-content: flex-start;
+  }
+}
+
+
+@media screen and (min-width: 800px) {
+  .splitL {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 40px;
+  }
+
+  .splitL .grid {
+    max-width: 600px;
+    aspect-ratio: 1 /1;
+  }
+
+  .splitL .gridC {
+    width: 50%;
+  }
+}
+
+.imageRight {
+  position: relative;
+}
+
+.gridImg {
+  height: 50vw;
+  position: relative;
+}
+
+@media screen and (min-width: 800px) {
+  .gridImg {
+    height: initial;
+  }
+}
+
+.gridImgLeft {
+  left: -40px;
+}
+
+.gridImgRight {
+  right: -40px;
+}
+
+.gridImgUp {
+  top: -40px;
+}
+
+.pad {
+  padding: 40px;
+}
+
+@media screen and (min-width: 800px) {
+  .pad {
+    padding: 80px 80px 80px 0;
+  }
+}
+
+.logoC {
+  position: relative;
+}
+.logoBg {
+  position: absolute;
+  top: -20px;
+  width: 357px;
+  height: 77px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .logoBg {
+    width: 740px;
+    height: 161px;
+    top: -70px;
+  }
+}
