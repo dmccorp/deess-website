@@ -1,9 +1,12 @@
 .header {
-  position: absolute;
-  padding: 43px 34px;
+  position: fixed;
+  padding: 19px 34px;
   display: flex;
   justify-content: space-between;
   width: 100%;
+  align-items: center;
+  background: #F9F2E6;
+  z-index: 1;
 }
 
 .footer {

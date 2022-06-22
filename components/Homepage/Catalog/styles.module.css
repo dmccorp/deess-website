@@ -48,6 +48,7 @@
 .catalogImage {
   position: relative;
   height: 400px;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 800px) {

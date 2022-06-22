@@ -19,9 +19,13 @@ const Display1 = () => {
         <div>
           <div className={`${styles.grid}`}>
             {images.map((img, index) => (
-              <div key={index}>
-                <Image width={165} height={165} src={img.src} alt="Image" />
-              </div>
+              <Image
+                key={index}
+                width={165}
+                height={165}
+                src={img.src}
+                alt="Image"
+              />
             ))}
           </div>
         </div>

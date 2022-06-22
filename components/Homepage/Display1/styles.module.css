@@ -41,11 +41,18 @@
   padding-bottom: 40px;
 }
 
+@media screen and (min-width: 800px) {
+  .sectionText p {
+    max-width: 50%;
+  }
+}
+
 .grid {
   display: grid;
   grid-template-columns: auto auto;
   padding-bottom: 40px;
-  align-items: center;
+  gap: 5px;
+  justify-content: center;
 }
 
 @media screen and (min-width: 800px) {
