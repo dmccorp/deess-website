@@ -41,7 +41,7 @@ export default function Layout({ children }) {
 
       <footer className={styles.footer}>
         <div>
-          <div className={styles.space}>
+          <div className={`${styles.space} ${styles.flogo}`}>
             <Image src={logo.src} width={139} height={29} alt="Deess Logo" />
           </div>
           <div className={`${styles.space} ${styles.textL}`}>

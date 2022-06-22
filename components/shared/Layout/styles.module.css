@@ -143,11 +143,15 @@
   .textS {
     display: none;
   }
+
+  .flogo {
+    padding-bottom: 82px;
+  }
 }
 
 .cols {
   display: flex;
-  padding-top: 40px;
+  padding-top: 69px;
   justify-content: space-between;
 }
 
