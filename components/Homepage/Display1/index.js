@@ -19,13 +19,14 @@ const Display1 = () => {
         <div>
           <div className={`${styles.grid}`}>
             {images.map((img, index) => (
-              <Image
-                key={index}
-                width={165}
-                height={165}
-                src={img.src}
-                alt="Image"
-              />
+              <div className={styles.box} key={index}>
+                <Image
+                  layout="fill"
+                  objectFit="cover"
+                  src={img.src}
+                  alt="Image"
+                />
+              </div>
             ))}
           </div>
         </div>

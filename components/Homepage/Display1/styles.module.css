@@ -49,16 +49,27 @@
 
 .grid {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: repeat(2, auto);
   padding-bottom: 40px;
   gap: 5px;
   justify-content: center;
 }
 
+.box {
+  position: relative;
+  height: 165px;
+  width: 165px;
+}
+
 @media screen and (min-width: 800px) {
   .grid {
     padding-bottom: 80px;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(4, auto);
+    justify-content: start;
+  }
+  .box {
+    height: 314px;
+    width: 314px;
   }
 }
 

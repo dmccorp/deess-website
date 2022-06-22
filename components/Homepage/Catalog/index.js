@@ -14,7 +14,12 @@ const Catalog = () => {
       <div className={`${styles.grid} ${styles.inlineL}`}>
         {images.map((img, index) => (
           <div key={index} className={styles.catalogImage}>
-            <Image layout="responsive" src={img.img} alt="Image" />
+            <Image
+              layout="fill"
+              objectFit="cover"
+              src={img.img}
+              alt="Image"
+            />
             <div className={styles.dark}>
               <div className={styles.name}>{img.name}</div>
             </div>

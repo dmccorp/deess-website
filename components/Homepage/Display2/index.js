@@ -35,16 +35,36 @@ const Display2 = () => {
             <div className={styles.gridC}>
               <div className={styles.grid}>
                 <div className={`${styles.gridImg}`}>
-                  <Image layout="fill" src={images[0].src} alt="Image" />
+                  <Image
+                    layout="fill"
+                    objectFit="cover"
+                    src={images[0].src}
+                    alt="Image"
+                  />
                 </div>
                 <div className={`${styles.gridImg} ${styles.gridImgLeft}`}>
-                  <Image layout="fill" src={images[1].src} alt="Image" />
+                  <Image
+                    layout="fill"
+                    objectFit="cover"
+                    src={images[1].src}
+                    alt="Image"
+                  />
                 </div>
                 <div className={`${styles.gridImg} ${styles.gridImgRight}`}>
-                  <Image layout="fill" src={images[2].src} alt="Image" />
+                  <Image
+                    layout="fill"
+                    objectFit="cover"
+                    src={images[2].src}
+                    alt="Image"
+                  />
                 </div>
                 <div className={`${styles.gridImg} ${styles.gridImgUp}`}>
-                  <Image layout="fill" src={images[3].src} alt="Image" />
+                  <Image
+                    layout="fill"
+                    objectFit="cover"
+                    src={images[3].src}
+                    alt="Image"
+                  />
                 </div>
               </div>
             </div>

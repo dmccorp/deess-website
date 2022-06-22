@@ -34,6 +34,17 @@
   top: 70%;
 }
 
+.imgCenter {
+  position: absolute;
+  left: 28%;
+  bottom: 20%;
+}
+
+.imgMid {
+  position: absolute;
+  right: 20%;
+  top: 30%;
+}
 
 .limHead {
   padding: 0 40px;

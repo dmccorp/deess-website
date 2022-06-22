@@ -41,7 +41,7 @@
   }
 
   .grid.inlineL {
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(4, auto);
   }
 }
 
@@ -50,6 +50,20 @@
   height: 400px;
   overflow: hidden;
 }
+
+@media screen and (min-width: 1200px) {
+  .grid.inlineL {
+    grid-template-columns: repeat(6, auto);
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  .catalogImage:nth-child(n+5) {
+    display: none;
+  }
+}
+
 
 @media screen and (min-width: 800px) {
   .catalogImage {
