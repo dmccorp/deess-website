@@ -36,8 +36,14 @@
 }
 
 .spHead h1 {
-  font-size: 70px;
+  font-size: 46px;
   margin-bottom: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .spHead h1 {
+    font-size: 70px;
+  }
 }
 
 .spHead span {
