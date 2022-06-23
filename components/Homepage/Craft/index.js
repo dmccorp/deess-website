@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import Image from "next/image";
-import lights from "./lights.png";
-import lightsL from "./lightsL.png";
+import lights from "./lights.webp";
+import lightsL from "./lightsL.webp";
 import arrow from "assets/images/arrow.svg";
 
 const Craft = () => {
