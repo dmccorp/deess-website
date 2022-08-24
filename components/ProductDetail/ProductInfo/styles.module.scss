@@ -1,0 +1,38 @@
+.container {
+  h2 {
+    font-size: 52px;
+    margin: 0 0 90px;
+  }
+  h3 {
+    color: #b8a078;
+  }
+}
+
+.row {
+  display: flex;
+  .column {
+    width: 50%;
+  }
+}
+
+.characteristic {
+  display: flex;
+  padding: 12px 0;
+  .name {
+    width: 180px;
+    font-weight: 600;
+  }
+}
+
+.colors {
+  display: flex;
+  gap: 40px;
+  font-weight: 600;
+  .dot {
+    height: 22px;
+    width: 22px;
+    border-radius: 11px;
+    margin: 0 auto 8px;
+    border: 1px solid #000;
+  }
+}

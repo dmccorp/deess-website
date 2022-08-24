@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  gap: 26px;
+}
+
+.tag {
+  line-height: 60px;
+  padding: 0 30px;
+  border-radius: 30px;
+  border: 1px solid #BDBDBD;
+  cursor: pointer;
+}
+
+.tagActive {
+  background: #F5F1E9;
+  border-color: #F5F1E9;
+}

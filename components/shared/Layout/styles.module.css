@@ -9,6 +9,11 @@
   z-index: 1;
 }
 
+.header.headLight {
+  background: transparent;
+  position: initial;
+}
+
 .footer {
   background: #F9F2E6;
   text-align: center;
@@ -160,4 +165,8 @@
 .minText {
   max-width: 250px;
   margin: 0 auto;
+}
+
+.main {
+  padding-top: 86px;
 }

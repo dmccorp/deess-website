@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./styles.module.css";
 import logo from "./logo.svg";
 import menu from "./menu.svg";
 import social from "./social";
 import search from "./search.svg";
+import classNames from "classnames";
 
 const socialIcons = [
   { href: "", name: "Twitter", img: social.twitter },
@@ -13,10 +15,14 @@ const socialIcons = [
   { href: "", name: "Pinterest", img: social.pinterest },
 ];
 
-export default function Layout({ children }) {
+export default function Layout({ children, lightHead }) {
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
+      <header
+        className={classNames(styles.header, {
+          [styles.headLight]: lightHead,
+        })}
+      >
         <div className={styles.logo}>
           <Image src={logo.src} width={94} height={21} alt="Deess Logo" />
         </div>
@@ -24,10 +30,10 @@ export default function Layout({ children }) {
           <Image src={menu.src} width={22} height={18} alt="Menu" />
         </div>
         <nav className={styles.nav}>
-          <a href="#">Home</a>
-          <a href="#">Products</a>
-          <a href="#">Contact</a>
-          <a href="#">About us</a>
+          <Link href="/">Home</Link>
+          <Link href="/products">Products</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/about-us">About us</Link>
         </nav>
         <div className={styles.search}>
           <input type="text" placeholder="Search for products" />

@@ -1,0 +1,17 @@
+.container {
+  width: 230px;
+  height: 350px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  .text {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    font-size: 13px;
+  }
+  figcaption {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}

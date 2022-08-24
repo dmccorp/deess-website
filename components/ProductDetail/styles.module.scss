@@ -1,0 +1,36 @@
+.container {
+  padding: 80px 0;
+  max-width: 1200px;
+  margin: auto;
+}
+.productDisplay {
+  display: flex;
+  gap: 120px;
+  padding-bottom: 180px;
+}
+.productPicture {
+  width: 50%;
+  overflow: hidden;
+  figure {
+    // height: 400px;
+    width: 480px;
+    height: 540px;
+    position: relative;
+  }
+}
+.productDetail {
+  width: 50%;
+  h1 {
+    font-size: 60px;
+    margin: 0;
+  }
+  .cat {
+    font-size: 26px;
+    font-weight: 500;
+    color: #b6b6b6;
+    text-transform: uppercase;
+  }
+  .desc {
+    line-height: 40px;
+  }
+}
