@@ -27,8 +27,8 @@ async function fetchProduct(slug) {
   return response.json();
 }
 
-export async function getServerSideProps(params) {
-  const products = await fetchProduct(params.slug);
+export async function getServerSideProps(context) {
+  const products = await fetchProduct(context.params.slug);
   if (products.data.length === 0)
     return {
       notFound: true,

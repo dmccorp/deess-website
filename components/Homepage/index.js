@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 import Hero from "./Hero";
 import Display1 from "./Display1";
 import Catalog from "./Catalog";
-import Display2 from "./Display2";
+import AboutUs from "./AboutUs";
 import Craft from "./Craft";
 
 const Homepage = () => {
@@ -17,7 +17,7 @@ const Homepage = () => {
       <Display1 />
       <Craft />
       <Catalog />
-      <Display2 />
+      <AboutUs explore />
       <div>
         <div className={styles.pad}>
           <div className={styles.regHead}>

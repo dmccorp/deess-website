@@ -16,8 +16,11 @@ a {
 }
 
 input,
-button {
+button,
+textarea {
   font-family: Quicksand;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 figure {

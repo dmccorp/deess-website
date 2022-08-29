@@ -23,17 +23,21 @@ export default function Layout({ children, lightHead }) {
           [styles.headLight]: lightHead,
         })}
       >
-        <div className={styles.logo}>
-          <Image src={logo.src} width={94} height={21} alt="Deess Logo" />
-        </div>
+        <Link href="/">
+          <div className={styles.logo}>
+            <Image src={logo.src} width={94} height={21} alt="Deess Logo" />
+          </div>
+        </Link>
         <div className={styles.menu}>
           <Image src={menu.src} width={22} height={18} alt="Menu" />
         </div>
         <nav className={styles.nav}>
-          <Link href="/">Home</Link>
           <Link href="/products">Products</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="/bespoke">Bespoke</Link>
+          <Link href="/lighting-design">Lighting design</Link>
+          <Link href="/contact-us">Contact us</Link>
           <Link href="/about-us">About us</Link>
+          <Link href="/downloads">Downloads</Link>
         </nav>
         <div className={styles.search}>
           <input type="text" placeholder="Search for products" />
@@ -53,7 +57,7 @@ export default function Layout({ children, lightHead }) {
           <div className={`${styles.space} ${styles.textL}`}>
             <div className={styles.listHead}>Address</div>
             <div className={`${styles.listItem} ${styles.minText}`}>
-              <p>1023, beige street, 4th main Belgium, 1987678.</p>
+              <p>DEESS BV, TER WAARDE 50, 8900 IEPER, BELGIUM</p>
             </div>
           </div>
         </div>
@@ -89,7 +93,7 @@ export default function Layout({ children, lightHead }) {
           <div className={styles.space}>
             <div className={styles.listHead}>Contact</div>
             <div className={styles.listItem}>
-              <p>reachus@deess.com</p>
+              <p>info@deess.com</p>
               <p>enquire@deess.com</p>
             </div>
           </div>

@@ -91,15 +91,17 @@
 
 .nav {
   display: none;
-  font-size: 19px;
+  font-size: 15px;
   gap: 40px;
   flex: 1;
+  font-weight: bold;
   justify-content: center;
   align-items: center;
 }
 
 .logo {
   width: 300px;
+  cursor: pointer;
 }
 
 .header .search {

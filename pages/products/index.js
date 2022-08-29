@@ -1,5 +1,6 @@
 import Products from "components/Products";
 import Layout from "components/shared/Layout";
+import Head from "next/head";
 import qs from "qs";
 
 async function fetchCategories() {
@@ -31,6 +32,9 @@ export async function getServerSideProps() {
 export default function ProductsPage({ categories, products }) {
   return (
     <Layout>
+      <Head>
+        <title>Products - déess</title>
+      </Head>
       <Products categories={categories} products={products} />
     </Layout>
   );

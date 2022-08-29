@@ -49,9 +49,21 @@ function IlluminationInfo({ product }) {
             </Characteristic>
           ))}
           <Characteristic name="Drivers">
-            {product.drivers.map((attr) => (
-              <div key={attr.id}>{attr.value}</div>
-            ))}
+            <table>
+              <tbody>
+                {product.drivers.map((attr) => (
+                  <tr key={attr.id}>
+                    <td className={styles.label}>{attr.name}</td>
+                    {attr.value && (
+                      <>
+                        <td>-</td>
+                        <td>{attr.value}</td>
+                      </>
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </Characteristic>
         </ul>
       </div>
@@ -71,9 +83,21 @@ function Dimensions({ product }) {
             </Characteristic>
           ))}
           <Characteristic name="Cut-out dimensions">
-            {product.cutoutDimensions.map((attr) => (
-              <div key={attr.id}>{attr.value}</div>
-            ))}
+            <table>
+              <tbody>
+                {product.cutoutDimensions.map((attr) => (
+                  <tr key={attr.id}>
+                    <td className={styles.label}>{attr.name}</td>
+                    {attr.value && (
+                      <>
+                        <td>-</td>
+                        <td>{attr.value}</td>
+                      </>
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </Characteristic>
         </ul>
       </div>
@@ -83,7 +107,6 @@ function Dimensions({ product }) {
 
 export default function ProductInfo({ product }) {
   const [configureMode, setConfigureMode] = useState(false);
-  console.log(product);
   return (
     <div className={styles.container}>
       <h2>Product description</h2>
