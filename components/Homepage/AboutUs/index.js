@@ -31,7 +31,7 @@ const AboutUs = ({ explore }) => {
                 <p>
                   For centuries, we have lived by the belief that light is a
                   crucial component of life. It helps us see, learn and work,
-                  but more importantly it gives us the energy to enjoy life's
+                  but more importantly it gives us the energy to enjoy life&apos;s
                   pleasures. With our modern designs and cutting-edge
                   technology, each fixture is engineered with your comfort in
                   mind.
@@ -46,7 +46,7 @@ const AboutUs = ({ explore }) => {
                 </p>
                 <p>
                   Déess resonates with the spirit and passion needed for light
-                  fixtures to feel like an art. The company's mission is to
+                  fixtures to feel like an art. The company&apos;s mission is to
                   create modern, minimal and astonishing finishes by offering
                   products of highest quality at an affordable price. Déess
                   intends to become a benchmark within the lighting market by
