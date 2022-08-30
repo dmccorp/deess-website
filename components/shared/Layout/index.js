@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./styles.module.css";
-import logo from "./logo.svg";
+import logo from "assets/logo.svg";
 import menu from "./menu.svg";
 import social from "./social";
 import search from "./search.svg";
@@ -93,14 +93,13 @@ export default function Layout({ children, lightHead }) {
           <div className={styles.space}>
             <div className={styles.listHead}>Contact</div>
             <div className={styles.listItem}>
-              <p>info@deess.com</p>
-              <p>enquire@deess.com</p>
+              <p>contact@deess.com</p>
             </div>
           </div>
           <div className={`${styles.space} ${styles.textS}`}>
             <div className={styles.listHead}>Address</div>
             <div className={`${styles.listItem} ${styles.minText}`}>
-              <p>1023, beige street, 4th main Belgium, 1987678.</p>
+              <p>DEESS BV, TER WAARDE 50, 8900 IEPER, BELGIUM</p>
             </div>
           </div>
           <div className={styles.space}>

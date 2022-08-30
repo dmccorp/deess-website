@@ -27,12 +27,12 @@
 .colors {
   display: flex;
   gap: 40px;
-  font-weight: 600;
-  .dot {
-    height: 22px;
-    width: 22px;
-    border-radius: 11px;
-    margin: 0 auto 8px;
-    border: 1px solid #000;
-  }
+  font-weight: 600; 
+}
+
+.dot {
+  height: 22px;
+  width: 22px;
+  border-radius: 11px;
+  margin: 0 auto 8px;
 }

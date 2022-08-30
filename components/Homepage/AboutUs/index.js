@@ -1,8 +1,8 @@
 import styles from "./styles.module.css";
 import Image from "next/image";
 import images from "./images";
-import logo from "components/shared/Layout/logo.svg";
-import deess from "./deess.svg";
+import logo from "assets/logo.svg";
+import deess from "assets/deess.svg";
 import arrow from "assets/images/arrow.svg";
 
 const AboutUs = ({ explore }) => {
@@ -31,10 +31,10 @@ const AboutUs = ({ explore }) => {
                 <p>
                   For centuries, we have lived by the belief that light is a
                   crucial component of life. It helps us see, learn and work,
-                  but more importantly it gives us the energy to enjoy life&apos;s
-                  pleasures. With our modern designs and cutting-edge
-                  technology, each fixture is engineered with your comfort in
-                  mind.
+                  but more importantly it gives us the energy to enjoy
+                  life&apos;s pleasures. With our modern designs and
+                  cutting-edge technology, each fixture is engineered with your
+                  comfort in mind.
                 </p>
                 <p>
                   Déess aims to offer the most attractive, modern and innovative
