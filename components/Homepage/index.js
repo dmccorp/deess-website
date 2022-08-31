@@ -6,12 +6,13 @@ import Display1 from "./Display1";
 import Catalog from "./Catalog";
 import AboutUs from "./AboutUs";
 import Craft from "./Craft";
+import { siteName } from "constants";
 
 const Homepage = () => {
   return (
     <Layout>
       <Head>
-        <title>DEESS</title>
+        <title>{siteName}</title>
       </Head>
       <Hero />
       <Display1 />

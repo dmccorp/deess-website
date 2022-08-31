@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import icons from "./icons";
 import Head from "next/head";
 import Button from "components/shared/Button";
+import { siteName } from "constants";
 
 const contactInfo = [
   {
@@ -26,7 +27,7 @@ const ContactUs = () => {
   return (
     <Layout lightHead>
       <Head>
-        <title>Contact us - déess lighting</title>
+        <title>Contact us - ${siteName}</title>
       </Head>
       <div className={styles.container}>
         <div className={styles.head}>

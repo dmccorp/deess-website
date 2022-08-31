@@ -22,8 +22,6 @@ export async function generatePDF(product, selection) {
   }
   const doc = new jsPDF();
   let ly = 22;
-  // doc.addFileToVFS("quicksand.ttf", fonts.regular);
-  // doc.addFont("quicksand.ttf", "Quicksand", "normal");
   doc.setFont("Quicksand-Bold");
   doc.setFontSize(25);
   doc.text(product.name, doc.internal.pageSize.width / 2, ly, "center");
@@ -81,10 +79,7 @@ export async function generatePDF(product, selection) {
   doc.setFontSize(11);
   doc.text("Dimensions", 20, ly);
 
-  const dimensions = [
-    ...product.dimensions.map((i) => [i.name, i.value]),
-    // ["Drivers", product.drivers],
-  ];
+  const dimensions = [...product.dimensions.map((i) => [i.name, i.value])];
   dimensions.reduce(
     (p, c) => addCharacteristic(c[0], c[1], p) + spacing,
     ly + 15
@@ -107,7 +102,6 @@ export async function generatePDF(product, selection) {
 
   let ratio = 4.57;
   let w = 45;
-  // doc.addImage(logoDark.src, "png", 20, 270, w, w / ratio);
   doc.addImage(logoDark.src, "png", 20, 268, w, w / ratio);
   doc.addImage(logoLight.src, "png", -10, 260);
 
@@ -132,6 +126,6 @@ export async function generatePDF(product, selection) {
 
   // console.log(doc.internal.pageSize);
   // doc.save("file.pdf");
-  console.log(product);
   doc.output("dataurlnewwindow");
+  // return doc.output("datauristring");
 }

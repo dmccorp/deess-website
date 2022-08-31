@@ -44,7 +44,7 @@ function IlluminationInfo({ product, configureMode }) {
               <table>
                 <tbody>
                   {Object.keys(DRIVERS).map((attr) => (
-                    <tr key={attr.id}>
+                    <tr key={attr}>
                       <td className={styles.label}>TCI {attr} driver</td>
                     </tr>
                   ))}

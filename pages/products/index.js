@@ -1,5 +1,6 @@
 import Products from "components/Products";
 import Layout from "components/shared/Layout";
+import { siteName } from "constants";
 import Head from "next/head";
 import qs from "qs";
 
@@ -33,7 +34,7 @@ export default function ProductsPage({ categories, products }) {
   return (
     <Layout>
       <Head>
-        <title>Products - déess</title>
+        <title>Products - ${siteName}</title>
       </Head>
       <Products categories={categories} products={products} />
     </Layout>

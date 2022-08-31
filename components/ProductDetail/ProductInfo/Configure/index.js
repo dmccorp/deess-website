@@ -89,34 +89,33 @@ function getProductCode(product, selection) {
   return `${product.code}-${cct}${selection.cri}${beamAngle}${driver}`;
 }
 
+function addImage(src) {
+  return new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => resolve();
+    image.src = src;
+  });
+}
+
+const assetAPI = "https://deess.dmcworks.in";
+
 export default function Configure({ product }) {
   const container = useRef();
   const [busy, setBusy] = useState(false);
-  const [configured, setConfigured] = useState();
-  const generating = useRef(false);
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = {};
     formData.forEach((value, key) => (data[key] = value));
+    data.code = getProductCode(product, data);
     setBusy(true);
-    setConfigured({
-      ...data,
-      code: getProductCode(product, data),
-      // color: COLORS.find((color) => color.name === data.color),
-    });
+    await addImage(`${assetAPI}${product.blueprint.data.attributes.url}`);
+    await addImage(
+      `${assetAPI}${product.displayImages.data[0].attributes.url}`
+    );
+    await generatePDF(product, data);
+    setBusy(false);
   };
-  useEffect(() => {
-    const generate = async () => {
-      await generatePDF(product, configured);
-      setBusy(false);
-      generating.current = false;
-    };
-    if (busy && !generating.current) {
-      generating.current = true;
-      generate();
-    }
-  }, [busy, product, configured]);
   useEffect(() => {
     container.current.scrollIntoView({ behavior: "smooth" });
   }, []);

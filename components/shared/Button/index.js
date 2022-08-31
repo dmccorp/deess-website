@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 
-export default function Button({ children, ...props }) {
+export default function Button({ children, light = false, ...props }) {
   return (
     <button
       {...props}

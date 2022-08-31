@@ -1,5 +1,6 @@
 import Button from "components/shared/Button";
 import Layout from "components/shared/Layout";
+import { siteName } from "constants";
 import Head from "next/head";
 import styles from "./styles.module.scss";
 
@@ -7,7 +8,7 @@ export default function LightingDesign() {
   return (
     <Layout lightHead>
       <Head>
-        <title>Lighting design - déess lighting</title>
+        <title>Lighting design - ${siteName}</title>
       </Head>
       <div className={styles.container}>
         <div className={styles.head}>
