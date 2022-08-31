@@ -4,6 +4,10 @@
   margin: 0 auto;
 }
 
+.empty {
+  padding: 100px 0;
+}
+
 .products {
   padding: 40px 0;
   display: grid;

@@ -1,7 +1,4 @@
 import Products from "components/Products";
-import Layout from "components/shared/Layout";
-import { siteName } from "constants";
-import Head from "next/head";
 import qs from "qs";
 
 async function fetchCategories() {
@@ -31,12 +28,5 @@ export async function getServerSideProps() {
 }
 
 export default function ProductsPage({ categories, products }) {
-  return (
-    <Layout>
-      <Head>
-        <title>Products - ${siteName}</title>
-      </Head>
-      <Products categories={categories} products={products} />
-    </Layout>
-  );
+  return <Products categories={categories} products={products} />;
 }

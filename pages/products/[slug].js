@@ -1,7 +1,18 @@
 import ProductDetail from "components/ProductDetail";
+import Products from "components/Products";
 import qs from "qs";
 
-async function fetchProduct(slug) {
+async function fetchProduct(slug, category) {
+  const filters = {};
+  if (category)
+    filters.categories = {
+      id: category.id,
+    };
+  else {
+    filters.slug = {
+      $eq: slug,
+    };
+  }
   const query = qs.stringify({
     populate: [
       "categories",
@@ -17,11 +28,7 @@ async function fetchProduct(slug) {
       "blueprint",
       "displayImages",
     ],
-    filters: {
-      slug: {
-        $eq: slug,
-      },
-    },
+    filters,
   });
   const response = await fetch(
     `https://deess.dmcworks.in/api/products?${query}`
@@ -29,19 +36,51 @@ async function fetchProduct(slug) {
   return response.json();
 }
 
+async function fetchCategories() {
+  const response = await fetch(`https://deess.dmcworks.in/api/categories`);
+  return response.json();
+}
+
 export async function getServerSideProps(context) {
-  const products = await fetchProduct(context.params.slug);
-  if (products.data.length === 0)
+  const categories = await fetchCategories();
+  const category = categories.data.find(
+    (category) => category.attributes.slug === context.params.slug
+  );
+  const products = await fetchProduct(context.params.slug, category);
+  if (category) {
     return {
-      notFound: true,
+      props: {
+        products: products.data,
+        categories: categories.data,
+        category: category.attributes,
+      },
     };
+  }
+  if (products.data.length > 0) {
+    return {
+      props: {
+        product: products.data[0].attributes,
+      },
+    };
+  }
   return {
-    props: {
-      product: products.data[0].attributes,
-    },
+    notFound: true,
   };
 }
 
-export default function ProductPage({ product }) {
+export default function ProductPage({
+  product,
+  products,
+  category,
+  categories,
+}) {
+  if (category)
+    return (
+      <Products
+        products={products}
+        category={category}
+        categories={categories}
+      />
+    );
   return <ProductDetail product={product} />;
 }

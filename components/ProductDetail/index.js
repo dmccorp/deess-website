@@ -9,6 +9,7 @@ import Button from "components/shared/Button";
 import { useState } from "react";
 import Images from "./Images";
 import { siteName } from "constants";
+import { Skeleton } from "@mui/material";
 
 export default function ProductDetail({ product }) {
   const displayImage = product.images.data[0].attributes;
@@ -36,6 +37,13 @@ export default function ProductDetail({ product }) {
                       className={styles.image}
                       src={`https://deess.dmcworks.in${img.attributes.url}`}
                       alt={img.attributes.alternativeText}
+                      renderLoading={() => (
+                        <Skeleton
+                          variant="rectangular"
+                          width={480}
+                          height={480 * 1.17}
+                        />
+                      )}
                     />
                   </Slide>
                 ))}
