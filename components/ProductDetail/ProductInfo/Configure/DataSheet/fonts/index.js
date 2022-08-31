@@ -1,3 +1,3 @@
 import "./Quicksand-Regular-normal";
-import "./Quicksand-Semibold-normal";
+import "./Quicksand-SemiBold-normal";
 import "./Quicksand-Bold-normal";
