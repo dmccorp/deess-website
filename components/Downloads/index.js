@@ -2,6 +2,8 @@ import Button from "components/shared/Button";
 import Input from "components/shared/Input";
 import Layout from "components/shared/Layout";
 import Select from "components/shared/Select";
+import { siteName } from "constants";
+import Head from "next/head";
 import styles from "./styles.module.scss";
 
 const options = [
@@ -15,6 +17,9 @@ const options = [
 export default function Downloads() {
   return (
     <Layout lightHead>
+      <Head>
+        <title>Download - {siteName}</title>
+      </Head>
       <div className={styles.container}>
         <div className={styles.row}>
           <div className={styles.head}>

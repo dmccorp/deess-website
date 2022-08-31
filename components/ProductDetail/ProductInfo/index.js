@@ -1,4 +1,4 @@
-import { Characteristic, Color, COLORS } from "./common";
+import { Characteristic, Color, COLORS, DRIVERS } from "./common";
 import Configure from "./Configure";
 import styles from "./styles.module.scss";
 
@@ -43,17 +43,14 @@ function IlluminationInfo({ product, configureMode }) {
             <Characteristic name="Drivers">
               <table>
                 <tbody>
-                  {product.drivers.map((attr) => (
+                  {Object.keys(DRIVERS).map((attr) => (
                     <tr key={attr.id}>
-                      <td className={styles.label}>{attr.name}</td>
-                      {attr.value && (
-                        <>
-                          <td>-</td>
-                          <td>{attr.value}</td>
-                        </>
-                      )}
+                      <td className={styles.label}>TCI {attr} driver</td>
                     </tr>
                   ))}
+                  <tr>
+                    <td>No driver</td>
+                  </tr>
                 </tbody>
               </table>
             </Characteristic>

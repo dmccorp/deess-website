@@ -14,6 +14,8 @@ async function fetchProduct(slug) {
       "dimensions",
       "illumination",
       "cutoutDimensions",
+      "blueprint",
+      "displayImages",
     ],
     filters: {
       slug: {

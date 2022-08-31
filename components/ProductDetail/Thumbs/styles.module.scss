@@ -8,8 +8,13 @@
   flex: 1;
   display: flex;
   gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+  ::-webkit-scrollbar {
+    appearance: none;
+  }
   button {
-    border: none;
+    border: 2px solid #fff;
     padding: 0;
     cursor: pointer;
     outline: none;
@@ -17,6 +22,9 @@
     span {
       vertical-align: top;
     }
+  }
+  .active {
+    border-color: #000;
   }
   img {
     width: 90px;

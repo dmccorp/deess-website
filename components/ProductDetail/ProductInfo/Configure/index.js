@@ -1,4 +1,5 @@
 import {
+  CircularProgress,
   createTheme,
   Dialog,
   FormControlLabel,
@@ -9,91 +10,11 @@ import {
 } from "@mui/material";
 import styles from "./styles.module.scss";
 import download from "./download.svg";
-import { Color, COLORS } from "../common";
+import { Color, COLORS, DRIVERS } from "../common";
 import { useEffect, useRef, useState } from "react";
 import DataSheet from "./DataSheet";
-import jsPDF from "jspdf";
 import "./DataSheet/fonts";
-
-function generatePDF(product, selection) {
-  function addCharacteristic(key, value = "", y) {
-    const keyWidth = 60;
-    const lines = doc.splitTextToSize(key, keyWidth);
-    const x = 20;
-    lines.forEach((line, i) => {
-      doc.setFont("Quicksand-SemiBold");
-      doc.setTextColor("#000");
-      doc.setFontSize(16);
-      doc.text(line, x, y + i * 5);
-    });
-
-    doc.setFont("Quicksand-Regular");
-    doc.setTextColor("#000");
-    doc.setFontSize(16);
-    doc.text(value, x + keyWidth, y);
-    return y + (lines.length - 1) * 5;
-  }
-  const doc = new jsPDF();
-  // doc.addFileToVFS("quicksand.ttf", fonts.regular);
-  // doc.addFont("quicksand.ttf", "Quicksand", "normal");
-  doc.setFont("Quicksand-Bold");
-  doc.setFontSize(25);
-  doc.text(product.name, doc.internal.pageSize.width / 2, 20, "center");
-
-  doc.setFont("Quicksand-Regular");
-  doc.setFontSize(16);
-  doc.setTextColor("#B6B6B6");
-  const category = product.categories.data
-    .map((category) => category.attributes.name)
-    .join(", ")
-    .toUpperCase();
-  doc.text(category, doc.internal.pageSize.width / 2, 30, "center");
-
-  doc.setFont("Quicksand-Bold");
-  doc.setTextColor("#000");
-  doc.setFontSize(24);
-  doc.text("Product description", 20, 50);
-
-  doc.setFont("Quicksand-SemiBold");
-  doc.setTextColor("#000");
-  doc.setFontSize(18);
-  doc.text("Product code -", 20, 65);
-  doc.setFont("Quicksand-SemiBold");
-  doc.setTextColor("#303030");
-  doc.setFontSize(18);
-  doc.text(product.code, 70, 65);
-
-  doc.setFont("Quicksand-SemiBold");
-  doc.setTextColor("#B8A078");
-  doc.setFontSize(20);
-  doc.text("Illumination info", 20, 85);
-
-  const illumination = [
-    ["Colors", selection.color],
-    ["CCT", selection.cct],
-    ["CRI", selection.cri],
-    ["Beam Angle", selection.beamAngle],
-    ...product.illumination.map((i) => [i.name, i.value]),
-    ["Drivers", selection.drivers],
-  ];
-  illumination.forEach((c, i) => addCharacteristic(c[0], c[1], 100 + i * 10));
-
-  let y = 100 + illumination.length * 10 + 5;
-  doc.setFont("Quicksand-SemiBold");
-  doc.setTextColor("#B8A078");
-  doc.setFontSize(20);
-  doc.text("Dimensions", 20, y);
-
-  const dimensions = [
-    ...product.dimensions.map((i) => [i.name, i.value]),
-    // ["Drivers", product.drivers],
-  ];
-  dimensions.reduce((p, c) => addCharacteristic(c[0], c[1], p) + 10, y + 15);
-  console.log(doc.splitTextToSize("Ingress protection rating", 52));
-  // console.log(doc.internal.pageSize);
-  // doc.save("file.pdf");
-  doc.output("dataurlnewwindow");
-}
+import { generatePDF } from "./DataSheet/generate";
 
 const theme = createTheme({
   components: {
@@ -161,22 +82,41 @@ function Colors() {
   );
 }
 
-const DRIVERS = ["0-10V", "DALI", "ON/OFF", "Phase-cut"];
+function getProductCode(product, selection) {
+  const cct = selection.cct.slice(0, 2);
+  const beamAngle = selection.beamAngle.slice(0, -1);
+  let driver = DRIVERS[selection.drivers.slice(4).slice(0, -7)] || "";
+  return `${product.code}-${cct}${selection.cri}${beamAngle}${driver}`;
+}
 
 export default function Configure({ product }) {
   const container = useRef();
+  const [busy, setBusy] = useState(false);
   const [configured, setConfigured] = useState();
-  const onSubmit = (e) => {
+  const generating = useRef(false);
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = {};
     formData.forEach((value, key) => (data[key] = value));
-    // setConfigured({
-    //   ...data,
-    //   color: COLORS.find((color) => color.name === data.color),
-    // });
-    generatePDF(product, data);
+    setBusy(true);
+    setConfigured({
+      ...data,
+      code: getProductCode(product, data),
+      // color: COLORS.find((color) => color.name === data.color),
+    });
   };
+  useEffect(() => {
+    const generate = async () => {
+      await generatePDF(product, configured);
+      setBusy(false);
+      generating.current = false;
+    };
+    if (busy && !generating.current) {
+      generating.current = true;
+      generate();
+    }
+  }, [busy, product, configured]);
   useEffect(() => {
     container.current.scrollIntoView({ behavior: "smooth" });
   }, []);
@@ -203,7 +143,9 @@ export default function Configure({ product }) {
                 <Options
                   name="drivers"
                   options={[
-                    ...DRIVERS.map((driver) => `TCI ${driver} driver`),
+                    ...Object.keys(DRIVERS).map(
+                      (driver) => `TCI ${driver} driver`
+                    ),
                     "No driver",
                   ]}
                 />
@@ -226,8 +168,12 @@ export default function Configure({ product }) {
             <div className={styles.code}>{product.code}</div>
             <div>
               <button type="submit">
-                <span>
-                  <img src={download.src} alt="download" />
+                <span className={styles.box}>
+                  {busy ? (
+                    <CircularProgress sx={{ color: "white" }} size={25} />
+                  ) : (
+                    <img src={download.src} alt="download" />
+                  )}
                 </span>
                 Download details
               </button>
@@ -235,11 +181,11 @@ export default function Configure({ product }) {
           </div>
         </form>
       </div>
-      {configured && (
+      {/* {configured && (
         <Dialog open onClose={() => setConfigured()} maxWidth>
           <DataSheet product={product} selection={configured} />
         </Dialog>
-      )}
+      )} */}
     </ThemeProvider>
   );
 }

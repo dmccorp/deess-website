@@ -1,8 +1,14 @@
+import classNames from "classnames";
 import styles from "./styles.module.scss";
 
 export default function Button({ children, ...props }) {
   return (
-    <button {...props} className={styles.container}>
+    <button
+      {...props}
+      className={classNames(styles.container, {
+        [styles.light]: props.light,
+      })}
+    >
       {children}
     </button>
   );

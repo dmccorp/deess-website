@@ -31,6 +31,13 @@ export const COLORS = [
   },
 ];
 
+export const DRIVERS = {
+  "0-10V": "010",
+  DALI: "064",
+  "ON/OFF": "001",
+  "Phase-cut": "002",
+};
+
 export function Color({ color }) {
   return (
     <div>

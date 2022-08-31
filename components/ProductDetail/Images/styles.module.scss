@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  height: 600px;
+  gap: 12px;
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .left,
+  .right,
+  .top,
+  .bottom {
+    flex: 1;
+  }
+  .left,
+  .top,
+  .bottom {
+    position: relative;
+  }
+}

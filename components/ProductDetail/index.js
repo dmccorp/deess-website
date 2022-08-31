@@ -8,6 +8,7 @@ import Head from "next/head";
 import Thumbs from "./Thumbs";
 import Button from "components/shared/Button";
 import { useState } from "react";
+import Images from "./Images";
 // import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function ProductDetail({ product }) {
@@ -96,13 +97,16 @@ export default function ProductDetail({ product }) {
             <div className={styles.bottom}>
               <h4>Configure your {product.name}</h4>
               <div>
-                <Button onClick={toggleConfigure}>Configure</Button>
+                <Button onClick={toggleConfigure} light={configureMode}>
+                  {configureMode ? "Exit Configurator" : "Configure"}
+                </Button>
               </div>
             </div>
           </div>
         </div>
         <div>
           <ProductInfo product={product} configureMode={configureMode} />
+          <Images product={product} />
         </div>
       </div>
     </Layout>
