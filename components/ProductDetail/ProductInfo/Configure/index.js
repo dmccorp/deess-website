@@ -13,7 +13,6 @@ import download from "./download.svg";
 import { Color, COLORS, DRIVERS } from "../common";
 import { useEffect, useRef, useState } from "react";
 import DataSheet from "./DataSheet";
-import "./DataSheet/fonts";
 import { generatePDF } from "./DataSheet/generate";
 
 const theme = createTheme({
