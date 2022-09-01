@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import images from "./images";
 import assets from "./assets";
 import Head from "next/head";
-import { siteName } from "constants";
+import { siteName } from "lib/constants";
 
 export default function Bespoke() {
   return (

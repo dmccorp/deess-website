@@ -2,7 +2,7 @@ import Button from "components/shared/Button";
 import Input from "components/shared/Input";
 import Layout from "components/shared/Layout";
 import Select from "components/shared/Select";
-import { siteName } from "constants";
+import { siteName } from "lib/constants";
 import Head from "next/head";
 import styles from "./styles.module.scss";
 

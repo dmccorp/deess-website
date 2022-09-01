@@ -3,9 +3,8 @@ import Image from "next/image";
 import images from "./images";
 import logo from "assets/logo.svg";
 import deess from "assets/deess.svg";
-import arrow from "assets/images/arrow.svg";
 
-const AboutUs = ({ explore }) => {
+const AboutUs = () => {
   return (
     <div className={styles.section}>
       <div className={styles.imageRight}>
@@ -62,12 +61,6 @@ const AboutUs = ({ explore }) => {
                   our factories across Europe and assembled locally by experts.{" "}
                 </p>
               </div>
-              {explore && (
-                <div className={styles.link}>
-                  <span>EXPLORE MORE PRODUCTS</span>
-                  <Image width={34} height={34} src={arrow.src} alt="arrow" />
-                </div>
-              )}
             </div>
             <div className={styles.gridC}>
               <div className={styles.grid}>

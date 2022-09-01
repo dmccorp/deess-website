@@ -1,5 +1,6 @@
 import ProductDetail from "components/ProductDetail";
 import Products from "components/Products";
+import { assetHost } from "lib/constants";
 import qs from "qs";
 
 async function fetchProduct(slug, category) {
@@ -31,13 +32,13 @@ async function fetchProduct(slug, category) {
     filters,
   });
   const response = await fetch(
-    `https://deess.dmcworks.in/api/products?${query}`
+    `${assetHost}/api/products?${query}`
   );
   return response.json();
 }
 
 async function fetchCategories() {
-  const response = await fetch(`https://deess.dmcworks.in/api/categories`);
+  const response = await fetch(`${assetHost}/api/categories`);
   return response.json();
 }
 

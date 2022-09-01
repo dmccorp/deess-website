@@ -1,14 +1,35 @@
 import Head from "next/head";
 import Layout from "../shared/Layout";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 import Hero from "./Hero";
 import Display1 from "./Display1";
 import Catalog from "./Catalog";
-import AboutUs from "./AboutUs";
 import Craft from "./Craft";
-import { siteName } from "constants";
+import { siteName } from "lib/constants";
+import NewProducts from "./NewProducts";
+import Link from "next/link";
 
-const Homepage = () => {
+function Contact() {
+  return (
+    <div className={styles.center}>
+      <div className={styles.pad}>
+        <div className={styles.regHead}>
+          <div>Feel free to</div>
+          <div className={styles.trail}>Enquire about products</div>
+        </div>
+        <div>
+          <div className={styles.button}>
+            <Link href="/contact-us">
+              <button>Enquire</button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const Homepage = ({ products, newProducts }) => {
   return (
     <Layout>
       <Head>
@@ -17,32 +38,9 @@ const Homepage = () => {
       <Hero />
       <Display1 />
       <Craft />
-      <Catalog />
-      <AboutUs explore />
-      <div>
-        <div className={styles.pad}>
-          <div className={styles.regHead}>
-            <div>Feel free to</div>
-            <div className={styles.trail}>Enquire about products</div>
-          </div>
-          <div>
-            <div className={styles.fields}>
-              <div className={styles.input}>
-                <input type="email" name="email" placeholder="Email" />
-              </div>
-              <div className={styles.input}>
-                <input type="text" name="product" placeholder="Product" />
-              </div>
-              <div className={styles.input}>
-                <input type="text" name="message" placeholder="Message" />
-              </div>
-            </div>
-            <div className={styles.button}>
-              <button>Enquire</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Catalog products={products} />
+      <NewProducts products={newProducts} />
+      <Contact />
     </Layout>
   );
 };

@@ -69,23 +69,29 @@ export default function Layout({ children, lightHead }) {
             </div>
           </div>
           <div className={styles.cols}>
-            <div>
+            <div className={styles.items}>
               <div className={styles.listHead}>Products</div>
-              <div className={styles.listItem}>
-                <p>Wall lightings</p>
-                <p>Accessories</p>
-                <p>Outdoor</p>
-                <p>Ceiling lightings</p>
-              </div>
+              <Link href="/products/wall">
+                <div className={styles.listItem}>Wall lightings</div>
+              </Link>
+              <Link href="/products/ceiling">
+                <div className={styles.listItem}>Ceiling lightings</div>
+              </Link>
+              <Link href="/products/floor">
+                <div className={styles.listItem}>Floor lightings</div>
+              </Link>
             </div>
-            <div>
-              <div className={styles.listHead}>Catalog</div>
-              <div className={styles.listItem}>
-                <p>Gaia</p>
-                <p>Fabra</p>
-                <p>Blanka</p>
-                <p>Gratia</p>
-              </div>
+            <div className={styles.items}>
+              <div className={styles.listHead}>Links</div>
+              <Link href="/bespoke">
+                <div className={styles.listItem}>Bespoke</div>
+              </Link>
+              <Link href="/lighting-design">
+                <div className={styles.listItem}>Lighting design</div>
+              </Link>
+              <Link href="/downloads">
+                <div className={styles.listItem}>Downloads</div>
+              </Link>
             </div>
           </div>
         </div>

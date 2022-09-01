@@ -8,8 +8,9 @@ import Thumbs from "./Thumbs";
 import Button from "components/shared/Button";
 import { useState } from "react";
 import Images from "./Images";
-import { siteName } from "constants";
+import { siteName } from "lib/constants";
 import { Skeleton } from "@mui/material";
+import { assetHost } from "lib/constants";
 
 export default function ProductDetail({ product }) {
   const displayImage = product.images.data[0].attributes;
@@ -35,7 +36,7 @@ export default function ProductDetail({ product }) {
                   <Slide index={index} key={index}>
                     <Image
                       className={styles.image}
-                      src={`https://deess.dmcworks.in${img.attributes.url}`}
+                      src={`${assetHost}${img.attributes.url}`}
                       alt={img.attributes.alternativeText}
                       renderLoading={() => (
                         <Skeleton

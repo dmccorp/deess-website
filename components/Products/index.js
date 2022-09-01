@@ -1,7 +1,7 @@
 import { Skeleton } from "@mui/material";
 import Layout from "components/shared/Layout";
 import Tags from "components/shared/Tags";
-import { siteName } from "constants";
+import { siteName } from "lib/constants";
 import Head from "next/head";
 import { useEffect, useMemo, useState } from "react";
 import Product from "./Product";

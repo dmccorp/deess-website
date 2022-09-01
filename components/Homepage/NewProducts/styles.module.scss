@@ -1,0 +1,45 @@
+.container {
+  width: 1200px;
+  margin: auto;
+  padding-bottom: 80px;
+  h1 {
+    font-size: 50px;
+    margin: 0 0 70px;
+  }
+  .products {
+    display: grid;
+    grid-template-columns: repeat(4, 283.5px);
+    gap: 22px;
+    padding-bottom: 60px;
+  }
+  .foot {
+    display: flex;
+    justify-content: flex-end;
+    .link {
+      cursor: pointer;
+    }
+  }
+}
+
+.product {
+  .image {
+    height: 400px;
+    position: relative;
+    .new {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 10px 20px;
+      background: #000;
+      color: #fff;
+    }
+  }
+  .name {
+    padding-top: 24px;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .desc {
+    padding-top: 16px;
+  }
+}

@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 import Image from "next/image";
 import lights from "./lights.webp";
 import lightsL from "./lightsL.webp";
-import arrow from "assets/images/arrow.svg";
+import Link from "components/shared/Link";
 
 const Craft = () => {
   return (
@@ -18,14 +18,17 @@ const Craft = () => {
           </div>
           <div className={styles.pad}>
             <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of
+              Déess is a Bespoke Lighting company based in Belgium, we work with
+              our skilled craftsmen to provide you the most beautiful bespoke
+              lighting. We can design any piece you imagine and create your
+              dream lighting to fit your style.. Déess is committed to providing
+              only the finest quality craftsmanship, materials and finishes
+              available. Our team will work with you on every step of your
+              project so that you are happy with your final piece.
             </p>
           </div>
           <div className={styles.link}>
-            <span>EXPLORE MORE PRODUCTS</span>
-            <Image width={34} height={34} src={arrow.src} alt="arrow" />
+            <Link to="/bespoke">EXPLORE MORE PRODUCTS</Link>
           </div>
         </div>
         <div className={`${styles.lImg} ${styles.col}`}>

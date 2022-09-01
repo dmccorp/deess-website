@@ -14,6 +14,7 @@ import { Color, COLORS, DRIVERS } from "../common";
 import { useEffect, useRef, useState } from "react";
 import DataSheet from "./DataSheet";
 import { generatePDF } from "./DataSheet/generate";
+import { assetHost } from "lib/constants";
 
 const theme = createTheme({
   components: {
@@ -96,8 +97,6 @@ function addImage(src) {
   });
 }
 
-const assetAPI = "https://deess.dmcworks.in";
-
 export default function Configure({ product }) {
   const container = useRef();
   const [busy, setBusy] = useState(false);
@@ -108,9 +107,9 @@ export default function Configure({ product }) {
     formData.forEach((value, key) => (data[key] = value));
     data.code = getProductCode(product, data);
     setBusy(true);
-    await addImage(`${assetAPI}${product.blueprint.data.attributes.url}`);
+    await addImage(`${assetHost}${product.blueprint.data.attributes.url}`);
     await addImage(
-      `${assetAPI}${product.displayImages.data[0].attributes.url}`
+      `${assetHost}${product.displayImages.data[0].attributes.url}`
     );
     await generatePDF(product, data);
     setBusy(false);

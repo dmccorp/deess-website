@@ -1,6 +1,6 @@
 import Button from "components/shared/Button";
 import Layout from "components/shared/Layout";
-import { siteName } from "constants";
+import { siteName } from "lib/constants";
 import Head from "next/head";
 import styles from "./styles.module.scss";
 

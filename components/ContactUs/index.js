@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import icons from "./icons";
 import Head from "next/head";
 import Button from "components/shared/Button";
-import { siteName } from "constants";
+import { siteName } from "lib/constants";
 
 const contactInfo = [
   {

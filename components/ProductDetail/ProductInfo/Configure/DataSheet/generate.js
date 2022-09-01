@@ -1,9 +1,8 @@
+import { assetHost } from "lib/constants";
 import jsPDF from "jspdf";
 import logoDark from "./assets/logo_black.png";
 import logoLight from "./assets/logo_gray.png";
 import "./fonts";
-
-const assetHost = "https://deess.dmcworks.in";
 
 export async function generatePDF(product, selection) {
   function addCharacteristic(key, value = "", y) {

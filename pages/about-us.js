@@ -1,6 +1,6 @@
 import AboutUs from "components/Homepage/AboutUs";
 import Layout from "components/shared/Layout";
-import { siteName } from "constants";
+import { siteName } from "lib/constants";
 import Head from "next/head";
 
 export default function AboutUsPage() {

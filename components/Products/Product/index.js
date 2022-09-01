@@ -1,5 +1,6 @@
 import { CircularProgress } from "@mui/material";
 import classNames from "classnames";
+import { assetHost } from "lib/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -13,7 +14,7 @@ export default function Product({ product }) {
       <div className={styles.container} onClick={() => setClicked(true)}>
         <figure>
           <Image
-            src={`https://deess.dmcworks.in${displayImage.url}`}
+            src={`${assetHost}${displayImage.url}`}
             alt={displayImage.alternativeText}
             height={displayImage.height}
             width={displayImage.width}

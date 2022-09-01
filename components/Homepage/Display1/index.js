@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import Image from "next/image";
 import images from "./images";
-import arrow from "assets/images/arrow.svg";
+import Link from "components/shared/Link";
 
 const Display1 = () => {
   return (
@@ -30,10 +30,7 @@ const Display1 = () => {
             ))}
           </div>
         </div>
-        <div className={styles.link}>
-          <span>EXPLORE MORE PRODUCTS</span>
-          <Image width={34} height={34} src={arrow.src} alt="arrow" />
-        </div>
+        <Link to="/">EXPLORE MORE PRODUCTS</Link>
       </div>
     </div>
   );

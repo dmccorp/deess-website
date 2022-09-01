@@ -1,8 +1,9 @@
 import Products from "components/Products";
+import { assetHost } from "lib/constants";
 import qs from "qs";
 
 async function fetchCategories() {
-  const response = await fetch("https://deess.dmcworks.in/api/categories");
+  const response = await fetch(`${assetHost}/api/categories`);
   return response.json();
 }
 
@@ -11,7 +12,7 @@ async function fetchProducts() {
     populate: ["categories", "images"],
   });
   const response = await fetch(
-    `https://deess.dmcworks.in/api/products?${query}`
+    `${assetHost}/api/products?${query}`
   );
   return response.json();
 }

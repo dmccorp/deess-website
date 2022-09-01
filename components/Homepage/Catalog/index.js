@@ -1,8 +1,9 @@
 import styles from "./styles.module.css";
 import Image from "next/image";
-import images from "./images";
+import { assetHost } from "lib/constants";
+import Link from "next/link";
 
-const Catalog = () => {
+const Catalog = ({ products }) => {
   return (
     <div>
       <div className={styles.padH}>
@@ -12,19 +13,24 @@ const Catalog = () => {
         </div>
       </div>
       <div className={`${styles.grid} ${styles.inlineL}`}>
-        {images.map((img, index) => (
-          <div key={index} className={styles.catalogImage}>
-            <Image
-              layout="fill"
-              objectFit="cover"
-              src={img.img}
-              alt="Image"
-            />
-            <div className={styles.dark}>
-              <div className={styles.name}>{img.name}</div>
-            </div>
-          </div>
-        ))}
+        {products.map((product) => {
+          const image = product.attributes.displayImages.data[0].attributes;
+          return (
+            <Link key={product.id} href={`/products/${product.attributes.slug}`}>
+              <div className={styles.catalogImage}>
+                <Image
+                  layout="fill"
+                  objectFit="cover"
+                  src={`${assetHost}${image.url}`}
+                  alt="Image"
+                />
+                <div className={styles.dark}>
+                  <div className={styles.name}>{product.attributes.name}</div>
+                </div>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

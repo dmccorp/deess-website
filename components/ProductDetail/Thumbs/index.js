@@ -3,6 +3,7 @@ import arrow from "./arrow.svg";
 import { ButtonBack, ButtonNext, CarouselContext } from "pure-react-carousel";
 import { useContext, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
+import { assetHost } from "lib/constants";
 
 export default function Thumbs({ images }) {
   const carouselContext = useContext(CarouselContext);
@@ -44,7 +45,7 @@ export default function Thumbs({ images }) {
             }
           >
             <img
-              src={`https://deess.dmcworks.in${img.attributes.formats.thumbnail.url}`}
+              src={`${assetHost}${img.attributes.formats.thumbnail.url}`}
               alt={img.attributes.alternativeText}
             />
           </button>

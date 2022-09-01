@@ -1,7 +1,6 @@
+import { assetHost } from "lib/constants";
 import Image from "next/image";
 import styles from "./styles.module.scss";
-
-const imageHost = "https://deess.dmcworks.in";
 
 export default function Images({ product }) {
   const blueprint = product.blueprint.data.attributes;
@@ -11,7 +10,7 @@ export default function Images({ product }) {
     <div className={styles.container}>
       <div className={styles.left}>
         <Image
-          src={`${imageHost}${display.url}`}
+          src={`${assetHost}${display.url}`}
           alt={display.alternativeText}
           layout="fill"
           objectFit="cover"
@@ -20,7 +19,7 @@ export default function Images({ product }) {
       <div className={styles.right}>
         <div className={styles.top}>
           <Image
-            src={`${imageHost}${blueprint.url}`}
+            src={`${assetHost}${blueprint.url}`}
             alt={blueprint.alternativeText}
             layout="fill"
             objectFit="cover"
@@ -28,7 +27,7 @@ export default function Images({ product }) {
         </div>
         <div className={styles.bottom}>
           <Image
-            src={`${imageHost}${image.url}`}
+            src={`${assetHost}${image.url}`}
             alt={image.alternativeText}
             layout="fill"
             objectFit="cover"
