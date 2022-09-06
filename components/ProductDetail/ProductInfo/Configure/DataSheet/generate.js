@@ -64,7 +64,7 @@ export async function generatePDF(product, selection) {
     ["Colors", selection.color],
     ["CCT", selection.cct],
     ["CRI", selection.cri],
-    ["Beam Angle", selection.beamAngle],
+    ...(selection.beamAngle ? [["Beam Angle", selection.beamAngle]] : []),
     ...product.illumination.map((i) => [i.name, i.value]),
     ["Drivers", selection.drivers],
   ];
@@ -109,7 +109,7 @@ export async function generatePDF(product, selection) {
   ratio = img.width / img.height;
   w = 80;
   const h = w / ratio;
-  ly = 66;
+  ly = 50;
   doc.addImage(`${assetHost}${img.url}`, img.ext.slice(1), 110, ly, w, h);
 
   ly += h + 10;

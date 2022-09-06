@@ -84,9 +84,9 @@ function Colors() {
 
 function getProductCode(product, selection) {
   const cct = selection.cct.slice(0, 2);
-  const beamAngle = selection.beamAngle.slice(0, -1);
+  const beamAngle = selection.beamAngle?.slice(0, -1);
   let driver = DRIVERS[selection.drivers.slice(4).slice(0, -7)] || "";
-  return `${product.code}-${cct}${selection.cri}${beamAngle}${driver}`;
+  return `${product.code}-${cct}${selection.cri}${beamAngle || ""}${driver}`;
 }
 
 function addImage(src) {
