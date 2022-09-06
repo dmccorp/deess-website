@@ -9,10 +9,8 @@
 }
 .parts {
   flex: 1;
-  display: flex;
-  .col {
-    flex: 1;
-  }
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
 }
 .download {
   border-left: 1px solid #aeaeae;

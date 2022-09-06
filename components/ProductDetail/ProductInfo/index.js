@@ -29,9 +29,13 @@ function IlluminationInfo({ product, configureMode }) {
               <Characteristic name="CRI">
                 {product.cri.map((cri) => cri.value).join("/")}
               </Characteristic>
-              <Characteristic name="Beam Angle">
-                {product.beamAngle.map((angle) => `${angle.value}°`).join("/")}
-              </Characteristic>
+              {product.beamAngle.length > 0 && (
+                <Characteristic name="Beam Angle">
+                  {product.beamAngle
+                    .map((angle) => `${angle.value}°`)
+                    .join("/")}
+                </Characteristic>
+              )}
             </>
           )}
           {product.illumination.map((attr) => (

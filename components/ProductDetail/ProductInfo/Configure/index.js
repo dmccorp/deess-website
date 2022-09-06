@@ -123,42 +123,40 @@ export default function Configure({ product }) {
         <h1>Configure {product.name}</h1>
         <form className={styles.row} onSubmit={onSubmit}>
           <div className={styles.parts}>
-            <div className={styles.col}>
-              <Attribute name="Color Temperature">
-                <Options
-                  name="cct"
-                  options={product.cct.map((cct) => cct.value)}
-                />
-              </Attribute>
-              <Attribute name="CRI">
-                <Options
-                  name="cri"
-                  options={product.cri.map((cct) => cct.value)}
-                />
-              </Attribute>
-              <Attribute name="Drivers">
-                <Options
-                  name="drivers"
-                  options={[
-                    ...Object.keys(DRIVERS).map(
-                      (driver) => `TCI ${driver} driver`
-                    ),
-                    "No driver",
-                  ]}
-                />
-              </Attribute>
-            </div>
-            <div className={styles.col}>
-              <Attribute name="Colors">
-                <Colors />
-              </Attribute>
+            <Attribute name="Color Temperature">
+              <Options
+                name="cct"
+                options={product.cct.map((cct) => cct.value)}
+              />
+            </Attribute>
+            <Attribute name="Colors">
+              <Colors />
+            </Attribute>
+            <Attribute name="CRI">
+              <Options
+                name="cri"
+                options={product.cri.map((cct) => cct.value)}
+              />
+            </Attribute>
+            {product.beamAngle.length > 0 && (
               <Attribute name="Beam angle">
                 <Options
                   name="beamAngle"
                   options={product.beamAngle.map((cct) => `${cct.value}°`)}
                 />
               </Attribute>
-            </div>
+            )}
+            <Attribute name="Drivers">
+              <Options
+                name="drivers"
+                options={[
+                  ...Object.keys(DRIVERS).map(
+                    (driver) => `TCI ${driver} driver`
+                  ),
+                  "No driver",
+                ]}
+              />
+            </Attribute>
           </div>
           <div className={styles.download}>
             <h4>Product Code</h4>

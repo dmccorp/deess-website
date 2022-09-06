@@ -22,7 +22,7 @@ export default function Images({ product }) {
             src={`${assetHost}${blueprint.url}`}
             alt={blueprint.alternativeText}
             layout="fill"
-            objectFit="cover"
+            objectFit="contain"
           />
         </div>
         <div className={styles.bottom}>
