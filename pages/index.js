@@ -18,7 +18,6 @@ export async function getServerSideProps() {
       populate: ["images"],
     })
   );
-  console.log(newProducts);
   return {
     props: {
       products: products.data,
