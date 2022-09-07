@@ -9,11 +9,9 @@ async function fetchCategories() {
 
 async function fetchProducts() {
   const query = qs.stringify({
-    populate: ["categories", "images"],
+    populate: ["categories", "images", "displayImages"],
   });
-  const response = await fetch(
-    `${assetHost}/api/products?${query}`
-  );
+  const response = await fetch(`${assetHost}/api/products?${query}`);
   return response.json();
 }
 
