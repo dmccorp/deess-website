@@ -5,7 +5,7 @@ import { siteName } from "lib/constants";
 import Head from "next/head";
 import { useEffect, useMemo, useState } from "react";
 import Product from "./Product";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 export default function Products({ categories, products, category: cat }) {
   const [category, setCategory] = useState("");

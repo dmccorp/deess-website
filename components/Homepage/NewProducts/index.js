@@ -17,7 +17,10 @@ function Product({ product }) {
         <div className={styles.new}>New</div>
       </div>
       <div className={styles.name}>{product.name}</div>
-      <div className={styles.desc}>{product.description}</div>
+      <div className={styles.desc}>
+        <div className={styles.limit}>{product.description}</div>
+        <div className={styles.more}>Read more</div>
+      </div>
     </div>
   );
 }

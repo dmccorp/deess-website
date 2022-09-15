@@ -1,16 +1,21 @@
 .container {
-  width: 1200px;
+  max-width: 1200px;
   margin: auto;
-  padding-bottom: 80px;
+  padding: 0 40px 80px;
+  @media screen and (min-width: 800px) {
+    padding: 0 0 80px;
+  }
   h1 {
     font-size: 50px;
     margin: 0 0 70px;
   }
   .products {
-    display: grid;
-    grid-template-columns: repeat(4, 283.5px);
-    gap: 22px;
-    padding-bottom: 60px;
+    @media screen and (min-width: 800px) {
+      display: grid;
+      grid-template-columns: repeat(4, 283.5px);
+      gap: 22px;
+      padding: 0 0 60px;
+    }
   }
   .foot {
     display: flex;
@@ -22,6 +27,7 @@
 }
 
 .product {
+  margin-bottom: 40px;
   .image {
     height: 400px;
     position: relative;
@@ -41,5 +47,25 @@
   }
   .desc {
     padding-top: 16px;
+    .limit {
+      max-height: 62px;
+      overflow: hidden;
+      position: relative;
+      // &::after {
+      //   height: 22px;
+      //   width: 100%;
+      //   left: 0;
+      //   bottom: 0;
+      //   position: absolute;
+      //   background: linear-gradient(rgba(255, 255, 255, 0.5), white);
+      //   content: "";
+      //   display: block;
+      // }
+    }
+    .more {
+      padding-top: 20px;
+      text-align: right;
+      font-weight: 700;
+    }
   }
 }

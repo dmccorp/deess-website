@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import Link from "next/link";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 export default function Tags({ list, current, onChange }) {
   return (

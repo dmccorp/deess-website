@@ -1,6 +1,7 @@
 .container {
   display: flex;
   gap: 26px;
+  overflow-x: auto;
 }
 
 .tag {

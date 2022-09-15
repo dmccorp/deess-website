@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: ["deess.dmcworks.in"],
   },
+  optimizeFonts: false,
 };
 
 module.exports = nextConfig;
