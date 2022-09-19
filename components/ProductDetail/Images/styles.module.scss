@@ -18,4 +18,22 @@
   .bottom {
     position: relative;
   }
+  .top {
+    border: 1px solid #ededed;
+  }
+}
+
+.canvas {
+  position: relative;
+  canvas {
+    height: 100%;
+    width: 100%;
+  }
+  .preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
