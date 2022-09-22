@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 export const COLORS = [
   {
     name: "White",
+    value: "AW",
     style: {
       border: "1px solid #ccc",
       borderWidth: ".5px",
@@ -11,18 +12,21 @@ export const COLORS = [
   },
   {
     name: "Black",
+    value: "BL",
     style: {
       background: "linear-gradient(to right, #434343 0%, black 100%)",
     },
   },
   {
     name: "Bronze",
+    value: "BR",
     style: {
       background: "linear-gradient(90deg, #E5A081 -1%, #A2350F 99.27%)",
     },
   },
   {
     name: "RAL",
+    value: "RA",
     style: {
       borderWidth: "11px",
       borderStyle: "solid",

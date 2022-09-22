@@ -61,7 +61,7 @@ function Options({ name, options }) {
 }
 
 function Colors() {
-  const [state, setState] = useState(COLORS[0].name);
+  const [state, setState] = useState(COLORS[0].value);
   return (
     <RadioGroup
       row
@@ -73,7 +73,7 @@ function Colors() {
         <FormControlLabel
           key={option.name}
           labelPlacement="top"
-          value={option.name}
+          value={option.value}
           control={<StyledRadio />}
           label={<Color color={option} />}
         />
@@ -83,10 +83,12 @@ function Colors() {
 }
 
 function getProductCode(product, selection) {
-  const cct = selection.cct.slice(0, 2);
-  const beamAngle = selection.beamAngle?.slice(0, -1);
+  const cct = selection.cct.slice(0, 2); // 2700 -> 27
+  const beamAngle = selection.beamAngle?.slice(0, -1); // 180° -> 180
   let driver = DRIVERS[selection.drivers.slice(4).slice(0, -7)] || "";
-  return `${product.code}-${cct}${selection.cri}${beamAngle || ""}${driver}`;
+  return `${product.code}-${cct}${selection.cri}${beamAngle || ""}${driver}-${
+    selection.color
+  }`;
 }
 
 function addImage(src) {
