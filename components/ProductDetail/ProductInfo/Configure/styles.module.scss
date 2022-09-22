@@ -1,20 +1,37 @@
 .container {
   h1 {
-    font-size: 52px;
-    margin: 0 0 80px;
+    font-size: 26px;
+    margin: 0 0 30px;
+    @media screen and (min-width: 800px) {
+      font-size: 52px;
+      margin: 0 0 80px;
+    }
   }
 }
 .row {
-  display: flex;
+  @media screen and (min-width: 800px) {
+    display: flex;
+  }
 }
 .parts {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
+  @media screen and (min-width: 800px) {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+  }
 }
 .download {
-  border-left: 1px solid #aeaeae;
-  padding: 0 70px;
+  padding: 0 0 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (min-width: 800px) {
+    display: initial;
+    text-align: initial;
+    border-left: 1px solid #aeaeae;
+    padding: 0 70px;
+  }
   h4 {
     font-size: 32px;
     margin: 0 0 20px;
@@ -34,6 +51,10 @@
     font-weight: 600;
     cursor: pointer;
     outline: none;
+    flex-direction: column;
+    @media screen and (min-width: 800px) {
+      flex-direction: initial;
+    }
     .box {
       background: #000;
       height: 50px;
@@ -46,9 +67,15 @@
 }
 
 .field {
-  padding-bottom: 60px;
+  padding-bottom: 40px;
+  @media screen and (min-width: 800px) {
+    padding-bottom: 60px;
+  }
   .title {
-    font-size: 26px;
+    font-size: 16px;
+    @media screen and (min-width: 800px) {
+      font-size: 26px;
+    }
     font-weight: 600;
     color: #b8a078;
     padding-bottom: 14px;

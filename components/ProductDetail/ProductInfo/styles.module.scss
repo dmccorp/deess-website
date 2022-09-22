@@ -1,8 +1,15 @@
 .container {
-  padding-bottom: 120px;
+  padding: 0 34px 120px;
+  @media screen and (min-width: 800px) {
+    padding: 0 0 120px;
+  }
   h2 {
-    font-size: 52px;
-    margin: 0 0 90px;
+    font-size: 26px;
+    margin: 0 0 30px;
+    @media screen and (min-width: 800px) {
+      font-size: 52px;
+      margin: 0 0 90px;
+    }
   }
   h3 {
     color: #b8a078;
@@ -10,9 +17,11 @@
 }
 
 .row {
-  display: flex;
-  .column {
-    width: 50%;
+  @media screen and (min-width: 800px) {
+    display: flex;
+    .column {
+      width: 50%;
+    }
   }
 }
 
@@ -27,8 +36,11 @@
 
 .colors {
   display: flex;
-  gap: 40px;
+  gap: 30px;
   font-weight: 600;
+  @media screen and (min-width: 800px) {
+    gap: 40px;
+  }
 }
 
 .dot {

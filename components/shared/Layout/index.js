@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 import logo from "assets/logo.svg";
 import menu from "./menu.svg";
 import social from "./social";
