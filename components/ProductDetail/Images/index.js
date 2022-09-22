@@ -38,26 +38,24 @@ export default function Images({ product }) {
   const image = product.images.data[0].attributes;
   return (
     <div className={styles.container}>
-      <div className={styles.left}>
+      <Canvas>
         <Image
-          src={`${assetHost}${display.url}`}
-          alt={display.alternativeText}
+          src={`${assetHost}${blueprint.url}`}
+          alt={blueprint.alternativeText}
           layout="fill"
-          objectFit="cover"
+          objectFit="contain"
         />
-      </div>
-      <div className={styles.right}>
-        <div className={styles.top}>
-          <Canvas>
-            <Image
-              src={`${assetHost}${blueprint.url}`}
-              alt={blueprint.alternativeText}
-              layout="fill"
-              objectFit="contain"
-            />
-          </Canvas>
+      </Canvas>
+      <div className={styles.bottom}>
+        <div className={styles.left}>
+          <Image
+            src={`${assetHost}${display.url}`}
+            alt={display.alternativeText}
+            layout="fill"
+            objectFit="cover"
+          />
         </div>
-        <div className={styles.bottom}>
+        <div className={styles.right}>
           <Image
             src={`${assetHost}${image.url}`}
             alt={image.alternativeText}

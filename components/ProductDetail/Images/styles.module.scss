@@ -1,35 +1,31 @@
 .container {
-  display: flex;
-  height: 600px;
-  gap: 12px;
   padding: 0 34px;
   @media screen and (min-width: 800px) {
     padding: 0;
   }
+  .bottom {
+    @media screen and (min-width: 800px) {
+      display: flex;
+      gap: 12px;
+      flex: 1;
+    }
+  }
+  .left,
   .right {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .left,
-  .right,
-  .top,
-  .bottom {
-    flex: 1;
-  }
-  .left,
-  .top,
-  .bottom {
+    margin-bottom: 12px;
+    @media screen and (min-width: 800px) {
+      flex: 1;
+    }
     position: relative;
-  }
-  .top {
-    border: 1px solid #ededed;
+    height: 400px;
   }
 }
 
 .canvas {
+  height: 400px;
   position: relative;
-  height: 100%;
+  border: 1px solid #ededed;
+  margin-bottom: 12px;
   canvas {
     height: 100%;
     width: 100%;
