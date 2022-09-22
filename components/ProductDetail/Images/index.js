@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { assetHost } from "lib/constants";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -33,8 +34,8 @@ function Canvas({ children }) {
 }
 
 export default function Images({ product }) {
+  console.log(product)
   const blueprint = product.blueprint.data.attributes;
-  const display = product.displayImages.data[0].attributes;
   const image = product.images.data[0].attributes;
   return (
     <div className={styles.container}>
@@ -49,19 +50,27 @@ export default function Images({ product }) {
       <div className={styles.bottom}>
         <div className={styles.left}>
           <Image
-            src={`${assetHost}${display.url}`}
-            alt={display.alternativeText}
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-        <div className={styles.right}>
-          <Image
             src={`${assetHost}${image.url}`}
             alt={image.alternativeText}
             layout="fill"
             objectFit="cover"
           />
+        </div>
+        <div
+          className={classNames(styles.right, {
+            [styles.single]: product.displayImages.data.length === 1,
+          })}
+        >
+          {product.displayImages.data.slice(0, 2).map((image) => (
+            <div key={image.id} className={styles.con}>
+              <Image
+                src={`${assetHost}${image.attributes.url}`}
+                alt={image.attributes.alternativeText}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>
