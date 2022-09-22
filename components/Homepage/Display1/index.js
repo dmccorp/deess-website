@@ -30,7 +30,7 @@ const Display1 = () => {
             ))}
           </div>
         </div>
-        <Link to="/">EXPLORE MORE PRODUCTS</Link>
+        <Link to="/products">EXPLORE MORE PRODUCTS</Link>
       </div>
     </div>
   );
