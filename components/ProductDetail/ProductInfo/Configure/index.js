@@ -109,10 +109,14 @@ export default function Configure({ product }) {
     formData.forEach((value, key) => (data[key] = value));
     data.code = getProductCode(product, data);
     setBusy(true);
-    await addImage(`${assetHost}${product.blueprint.data.attributes.url}`);
-    await addImage(
-      `${assetHost}${product.displayImages.data[0].attributes.url}`
-    );
+    const blueprint = product.blueprint.data;
+    if (blueprint) {
+      await addImage(`${assetHost}${blueprint.attributes.url}`);
+    }
+    const displayImages = product.displayImages.data;
+    if (displayImages) {
+      await addImage(`${assetHost}${displayImages[0].attributes.url}`);
+    }
     await generatePDF(product, data);
     setBusy(false);
   };

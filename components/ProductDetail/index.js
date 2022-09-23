@@ -13,7 +13,6 @@ import { Skeleton } from "@mui/material";
 import { assetHost } from "lib/constants";
 
 export default function ProductDetail({ product }) {
-  const displayImage = product.images.data[0].attributes;
   const [configureMode, setConfigureMode] = useState(false);
   const toggleConfigure = () => setConfigureMode(!configureMode);
   return (

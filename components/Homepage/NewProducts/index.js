@@ -1,19 +1,13 @@
+import FirstImage from "components/shared/FirstImage";
 import Link from "components/shared/Link";
-import { assetHost } from "lib/constants";
-import Image from "next/image";
 import styles from "./styles.module.scss";
 
 function Product({ product }) {
-  const image = product.images.data[0].attributes;
+  const images = product.images.data;
   return (
     <div className={styles.product}>
       <div className={styles.image}>
-        <Image
-          src={`${assetHost}${image.url}`}
-          alt={image.alternativeText}
-          layout="fill"
-          objectFit="cover"
-        />
+        <FirstImage images={images} />
         <div className={styles.new}>New</div>
       </div>
       <div className={styles.name}>{product.name}</div>

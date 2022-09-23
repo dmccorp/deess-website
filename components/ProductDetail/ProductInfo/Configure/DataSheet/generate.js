@@ -105,24 +105,30 @@ export async function generatePDF(product, selection) {
   doc.addImage(logoDark.src, "png", 20, 268, w, w / ratio);
   doc.addImage(logoLight.src, "png", -10, 260);
 
-  let img = product.blueprint.data.attributes;
-  ratio = img.width / img.height;
-  w = 80;
-  const h = w / ratio;
-  ly = 50;
-  doc.addImage(`${assetHost}${img.url}`, img.ext.slice(1), 110, ly, w, h);
+  const blueprint = product.blueprint.data;
+  if (blueprint) {
+    let img = blueprint.attributes;
+    ratio = img.width / img.height;
+    w = 80;
+    const h = w / ratio;
+    ly = 50;
+    doc.addImage(`${assetHost}${img.url}`, img.ext.slice(1), 110, ly, w, h);
+  }
 
   ly += h + 10;
-  img = product.displayImages.data[0].attributes;
-  ratio = img.width / img.height;
-  doc.addImage(
-    `${assetHost}${img.url}`,
-    img.ext.slice(1),
-    110,
-    ly,
-    w,
-    w / ratio
-  );
+  const displayImages = product.displayImages.data;
+  if (displayImages) {
+    img = displayImages[0].attributes;
+    ratio = img.width / img.height;
+    doc.addImage(
+      `${assetHost}${img.url}`,
+      img.ext.slice(1),
+      110,
+      ly,
+      w,
+      w / ratio
+    );
+  }
 
   // console.log(doc.internal.pageSize);
   // doc.save("file.pdf");

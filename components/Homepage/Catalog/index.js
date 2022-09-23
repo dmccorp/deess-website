@@ -1,7 +1,6 @@
 import styles from "./styles.module.css";
-import Image from "next/image";
-import { assetHost } from "lib/constants";
 import Link from "next/link";
+import FirstImage from "components/shared/FirstImage";
 
 const Catalog = ({ products }) => {
   return (
@@ -13,24 +12,16 @@ const Catalog = ({ products }) => {
         </div>
       </div>
       <div className={`${styles.grid} ${styles.inlineL}`}>
-        {products.map((product) => {
-          const image = product.attributes.displayImages.data[0].attributes;
-          return (
-            <Link key={product.id} href={`/products/${product.attributes.slug}`}>
-              <div className={styles.catalogImage}>
-                <Image
-                  layout="fill"
-                  objectFit="cover"
-                  src={`${assetHost}${image.url}`}
-                  alt="Image"
-                />
-                <div className={styles.dark}>
-                  <div className={styles.name}>{product.attributes.name}</div>
-                </div>
+        {products.map((product) => (
+          <Link key={product.id} href={`/products/${product.attributes.slug}`}>
+            <div className={styles.catalogImage}>
+              <FirstImage images={product.attributes.displayImages.data} />
+              <div className={styles.dark}>
+                <div className={styles.name}>{product.attributes.name}</div>
               </div>
-            </Link>
-          );
-        })}
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );
