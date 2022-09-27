@@ -31,7 +31,7 @@ function Contact() {
 
 const Homepage = ({ products, newProducts }) => {
   return (
-    <Layout>
+    <Layout fixedHead>
       <Head>
         <title>{siteName}</title>
       </Head>

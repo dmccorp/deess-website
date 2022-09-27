@@ -25,7 +25,7 @@ const contactInfo = [
 
 const ContactUs = () => {
   return (
-    <Layout lightHead>
+    <Layout>
       <Head>
         <title>Contact us - ${siteName}</title>
       </Head>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import logo from "assets/logo.svg";
+import lightLogo from "assets/logo_light.svg";
 import menu from "./menu.svg";
 import social from "./social";
 import search from "./search.svg";
@@ -15,17 +16,17 @@ const socialIcons = [
   { href: "", name: "Pinterest", img: social.pinterest },
 ];
 
-export default function Layout({ children, lightHead }) {
+export default function Layout({ children, fixedHead }) {
   return (
     <div className={styles.container}>
       <header
         className={classNames(styles.header, {
-          [styles.headLight]: lightHead,
+          [styles.fixed]: fixedHead,
         })}
       >
         <Link href="/">
           <div className={styles.logo}>
-            <Image src={logo.src} width={94} height={21} alt="Deess Logo" />
+            <Image src={fixedHead ? lightLogo.src : logo.src} width={94} height={21} alt="Deess Logo" />
           </div>
         </Link>
         <div className={styles.menu}>

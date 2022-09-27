@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 
 export default function LightingDesign() {
   return (
-    <Layout lightHead>
+    <Layout>
       <Head>
         <title>Lighting design - ${siteName}</title>
       </Head>
