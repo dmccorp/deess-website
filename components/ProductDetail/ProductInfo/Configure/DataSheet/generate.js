@@ -47,7 +47,6 @@ async function rasterize2(img, w, h) {
   const instance = await Canvg.from(ctx, `${assetHost}${img.url}`);
   const t = 501;
   const ratio = h / w;
-  console.log(img.width, img.height);
   // instance.resize(img.width * .75, img.height * .75);
   // instance.resize(img.width, img.height);
   // instance.resize(t, t * ratio);
