@@ -4,6 +4,7 @@ import { assetHost } from "lib/constants";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import styles from "./styles.module.scss";
+import dottedbg from "./dotted-bg2x.png";
 
 function Canvas({ children }) {
   const canvas = useRef();
@@ -34,18 +35,35 @@ function Canvas({ children }) {
   );
 }
 
+function DottedBG({ children }) {
+  return (
+    <div className="dottedbg">
+      {children}
+      <style jsx>{`
+        .dottedbg {
+          height: 400px;
+          position: relative;
+          border: 1px solid #ededed;
+          margin-bottom: 12px;
+          background: url(${dottedbg.src});
+        }
+      `}</style>
+    </div>
+  );
+}
+
 export default function Images({ product }) {
   const blueprint = product.blueprint.data.attributes;
   return (
     <div className={styles.container}>
-      <Canvas>
+      <DottedBG>
         <Image
           src={`${assetHost}${blueprint.url}`}
           alt={blueprint.alternativeText}
           layout="fill"
           objectFit="contain"
         />
-      </Canvas>
+      </DottedBG>
       <div className={styles.bottom}>
         <div className={styles.left}>
           <FirstImage images={product.images.data} />
