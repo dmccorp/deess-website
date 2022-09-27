@@ -2,10 +2,18 @@ import { Characteristic, Color } from "../../common";
 import styles from "./styles.module.scss";
 import deess from "assets/deess.svg";
 import logo from "assets/logo.svg";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import html2pdf from "html2pdf.js";
 
 export default function DataSheet({ product, selection }) {
   const ref = useRef();
+  const downloaded = useRef(true);
+  useEffect(() => {
+    if (!downloaded.current) {
+      html2pdf(ref.current);
+      downloaded.current = true;
+    }
+  }, []);
   return (
     <div className={styles.container} ref={ref}>
       <div className={styles.head}>

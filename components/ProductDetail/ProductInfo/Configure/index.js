@@ -12,9 +12,10 @@ import styles from "./styles.module.scss";
 import download from "./download.svg";
 import { Color, COLORS, DRIVERS } from "../common";
 import { useEffect, useRef, useState } from "react";
-import DataSheet from "./DataSheet";
+// import DataSheet from "./DataSheet";
 import { generatePDF } from "./DataSheet/generate";
 import { assetHost } from "lib/constants";
+import { Canvg, presets } from "canvg";
 
 const theme = createTheme({
   components: {
@@ -99,15 +100,44 @@ function addImage(src) {
   });
 }
 
+async function drawCanvas(canvas, img) {
+  const ctx = canvas.getContext("2d");
+  const width = img.width;
+  const height = img.height;
+  console.log(`${assetHost}${img.url}`);
+  const v = await Canvg.from(
+    ctx,
+    `${assetHost}${img.url}`
+    // presets.offscreen()
+  );
+  const ratio = img.width / img.height;
+  const t = 500;
+  // v.resize(t, t * ratio);
+  // v.resize(t, t * ratio, "xMidYMid meet");
+  // v.resize(width, height, "xMidYMid meet");
+  await v.render();
+}
+
 export default function Configure({ product }) {
   const container = useRef();
   const [busy, setBusy] = useState(false);
+  const [configured, setConfigured] = useState();
+  const canvas = useRef();
   const onSubmit = async (e) => {
     e.preventDefault();
+    // const blueprint = product.blueprint.data;
+    // let img = blueprint.attributes;
+    // const rsp = await fetch(`${assetHost}${img.url}`);
+    // const svg = await rsp.text();
+    // const ratio = img.width / img.height;
+    // const width = 100;
+    // return await drawCanvas(canvas.current, img);
+    // ---
     const formData = new FormData(e.target);
     const data = {};
     formData.forEach((value, key) => (data[key] = value));
     data.code = getProductCode(product, data);
+    // return setConfigured(data);
     setBusy(true);
     const blueprint = product.blueprint.data;
     if (blueprint) {
@@ -178,6 +208,9 @@ export default function Configure({ product }) {
                 </span>
                 Download details
               </button>
+            </div>
+            <div>
+              <canvas ref={canvas} />
             </div>
           </div>
         </form>
