@@ -8,6 +8,7 @@ import social from "./social";
 import search from "./search.svg";
 import classNames from "classnames";
 import { Dialog } from "@mui/material";
+import cone from "assets/cone.png";
 
 const socialIcons = [
   { href: "", name: "Twitter", img: social.twitter },
@@ -27,7 +28,12 @@ export default function Layout({ children, fixedHead }) {
       >
         <Link href="/">
           <div className={styles.logo}>
-            <Image src={fixedHead ? lightLogo.src : logo.src} width={94} height={21} alt="Deess Logo" />
+            <Image
+              src={fixedHead ? lightLogo.src : logo.src}
+              width={94}
+              height={21}
+              alt="Deess Logo"
+            />
           </div>
         </Link>
         <div className={styles.menu}>
@@ -128,7 +134,8 @@ export default function Layout({ children, fixedHead }) {
         </div>
       </footer>
       <Dialog open maxWidth>
-        <div style={{ padding: "3rem 5rem", textAlign: "center" }}>
+        <div style={{ padding: "2rem 5rem", textAlign: "center" }}>
+          <img src={cone.src} alt="Work in progress" style={{ height: '150px', marginBottom: '10px' }} />
           <h1>Website under maintenance!</h1>
         </div>
       </Dialog>
