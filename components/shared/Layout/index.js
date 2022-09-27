@@ -6,6 +6,7 @@ import menu from "./menu.svg";
 import social from "./social";
 import search from "./search.svg";
 import classNames from "classnames";
+import { Dialog } from "@mui/material";
 
 const socialIcons = [
   { href: "", name: "Twitter", img: social.twitter },
@@ -125,6 +126,11 @@ export default function Layout({ children, lightHead }) {
           </div>
         </div>
       </footer>
+      <Dialog open maxWidth>
+        <div style={{ padding: "3rem 5rem", textAlign: "center" }}>
+          <h1>Website under maintenance!</h1>
+        </div>
+      </Dialog>
     </div>
   );
 }
