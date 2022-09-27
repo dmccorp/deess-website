@@ -16,6 +16,33 @@ const socialIcons = [
   { href: "", name: "Pinterest", img: social.pinterest },
 ];
 
+const links = [
+  {
+    link: "/products",
+    label: "Products",
+  },
+  {
+    link: "/bespoke",
+    label: "Bespoke",
+  },
+  {
+    link: "/lighting-design",
+    label: "Lighting design",
+  },
+  {
+    link: "/contact-us",
+    label: "Contact us",
+  },
+  {
+    link: "/about-us",
+    label: "About us",
+  },
+  {
+    link: "/downloads",
+    label: "Downloads",
+  },
+];
+
 export default function Layout({ children, fixedHead }) {
   return (
     <div className={styles.container}>
@@ -26,19 +53,23 @@ export default function Layout({ children, fixedHead }) {
       >
         <Link href="/">
           <div className={styles.logo}>
-            <Image src={fixedHead ? lightLogo.src : logo.src} width={94} height={21} alt="Deess Logo" />
+            <Image
+              src={fixedHead ? lightLogo.src : logo.src}
+              width={94}
+              height={21}
+              alt="Deess Logo"
+            />
           </div>
         </Link>
         <div className={styles.menu}>
           <Image src={menu.src} width={22} height={18} alt="Menu" />
         </div>
         <nav className={styles.nav}>
-          <Link href="/products">Products</Link>
-          <Link href="/bespoke">Bespoke</Link>
-          <Link href="/lighting-design">Lighting design</Link>
-          <Link href="/contact-us">Contact us</Link>
-          <Link href="/about-us">About us</Link>
-          <Link href="/downloads">Downloads</Link>
+          {links.map((link) => (
+            <Link href={link.link} key={link.link}>
+              {link.label}
+            </Link>
+          ))}
         </nav>
         <div className={styles.search}>
           <input type="text" placeholder="Search for products" />
