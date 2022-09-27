@@ -1,10 +1,18 @@
 .hero {
-  background: linear-gradient(73.36deg, #FBF3E5 6.91%, #F4F0E9 99.81%);
+  background: #000;
   height: 100vh;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
+  color: #fff;
+
+  .bg {
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .hero h1 {
@@ -45,5 +53,8 @@
 }
 
 .limHead {
-  padding: 0 40px;
+  padding: 0 40px 60px;
+  h1 {
+    font-weight: 400;
+  }
 }

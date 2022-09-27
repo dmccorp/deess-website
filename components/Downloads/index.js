@@ -16,7 +16,7 @@ const options = [
 
 export default function Downloads() {
   return (
-    <Layout lightHead>
+    <Layout>
       <Head>
         <title>Download - {siteName}</title>
       </Head>

@@ -1,21 +1,19 @@
 .header {
-  position: fixed;
   padding: 19px 34px;
   display: flex;
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  background: #F9F2E6;
   z-index: 1;
 }
 
-.header.headLight {
-  background: transparent;
-  position: initial;
+.header.fixed {
+  position: absolute;
+  color: #fff;
 }
 
 .footer {
-  background: #F9F2E6;
+  background: #f9f2e6;
   text-align: center;
   padding: 60px 40px 80px;
 }
@@ -126,15 +124,20 @@
   top: 16px;
 }
 
-.search input {
-  padding: 10px 20px;
-  border-radius: 24px;
-  border: 1px solid #BDBDBD;
-  width: 100%;
-  line-height: 26px;
-  font-size: 15px;
-  background: transparent;
-  outline: none;
+.search {
+  input {
+    padding: 10px 20px;
+    border-radius: 24px;
+    border: 1px solid #bdbdbd;
+    width: 100%;
+    line-height: 26px;
+    font-size: 15px;
+    background: transparent;
+    outline: none;
+  }
+  .fixed & input {
+    color: #fff;
+  }
 }
 
 @media screen and (min-width: 800px) {
@@ -153,7 +156,7 @@
 
 @media screen and (min-width: 800px) {
   .textL {
-    display: initial
+    display: initial;
   }
 
   .textS {
@@ -174,8 +177,4 @@
 .minText {
   max-width: 250px;
   margin: 0 auto;
-}
-
-.main {
-  padding-top: 86px;
 }

@@ -16,7 +16,7 @@ export default function ProductDetail({ product }) {
   const [configureMode, setConfigureMode] = useState(false);
   const toggleConfigure = () => setConfigureMode(!configureMode);
   return (
-    <Layout lightHead>
+    <Layout>
       <Head>
         <title>
           {product.name} - ${siteName}

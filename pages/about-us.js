@@ -5,7 +5,7 @@ import Head from "next/head";
 
 export default function AboutUsPage() {
   return (
-    <Layout lightHead>
+    <Layout>
       <Head>
         <title>About Us - {siteName}</title>
       </Head>

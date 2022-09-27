@@ -8,7 +8,7 @@ import { siteName } from "lib/constants";
 
 export default function Bespoke() {
   return (
-    <Layout lightHead>
+    <Layout>
       <Head>
         <title>Bespoke - {siteName}</title>
       </Head>
