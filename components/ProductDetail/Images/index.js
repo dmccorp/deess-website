@@ -70,10 +70,10 @@ export default function Images({ product }) {
         </div>
         <div
           className={classNames(styles.right, {
-            [styles.single]: product.displayImages.data.length === 1,
+            [styles.single]: product.displayImages.data?.length === 1,
           })}
         >
-          {product.displayImages.data.slice(0, 2).map((image) => (
+          {product.displayImages.data?.slice(0, 2)?.map((image) => (
             <div key={image.id} className={styles.con}>
               <Image
                 src={`${assetHost}${image.attributes.url}`}
