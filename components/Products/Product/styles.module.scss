@@ -4,9 +4,7 @@
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  margin: 0 0 40px;
   @media screen and (min-width: 800px) {
-    margin: 0;
     width: 230px;
   }
   .text {
@@ -14,6 +12,10 @@
     bottom: 24px;
     left: 24px;
     font-size: 13px;
+  }
+  figure {
+    height: 100%;
+    position: relative;
   }
   figcaption {
     font-size: 20px;

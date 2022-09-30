@@ -7,13 +7,15 @@ async function fetchCategories() {
   return response.json();
 }
 
-async function fetchProducts() {
+export async function fetchProducts(page = 1) {
   const query = qs.stringify({
     populate: ["categories", "images", "displayImages"],
+    pagination: { page },
   });
   const response = await fetch(`${assetHost}/api/products?${query}`);
   return response.json();
 }
+
 
 export async function getServerSideProps() {
   const categories = await fetchCategories();
@@ -21,7 +23,7 @@ export async function getServerSideProps() {
   return {
     props: {
       categories: categories.data,
-      products: products.data,
+      products,
     },
   };
 }
