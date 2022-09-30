@@ -7,7 +7,7 @@ import menu from "./menu.svg";
 import social from "./social";
 import search from "./search.svg";
 import classNames from "classnames";
-import maintenance from "./maintenance.png";
+import Maintenance from "./Maintenance";
 
 const socialIcons = [
   { href: "", name: "Twitter", img: social.twitter },
@@ -158,23 +158,7 @@ export default function Layout({ children, fixedHead }) {
           </div>
         </div>
       </footer>
-      <div
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          height: "100%",
-          width: "100%",
-          zIndex: 1000,
-          background: "#fffdf9",
-        }}
-      >
-        <img
-          src={maintenance.src}
-          alt="Work in progress"
-          style={{ height: "100%", width: "100%", objectFit: "contain" }}
-        />
-      </div>
+      <Maintenance />
     </div>
   );
 }
