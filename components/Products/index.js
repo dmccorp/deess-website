@@ -57,7 +57,6 @@ export default function Products({
                 <Skeleton
                   key={index}
                   variant="rectangular"
-                  width={230}
                   height={350}
                 />
               ))}
