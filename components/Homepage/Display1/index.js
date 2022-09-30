@@ -10,10 +10,12 @@ const Display1 = () => {
         <div className={styles.sectionText}>
           <h1>Unique and versatile architecture</h1>
           <p>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it has a more-or-less normal
-            distribution.
+            At déess, our ambition is to create lighting that makes a statement.
+            Light fixtures that are unique and personal to you. We combine
+            minimalism and elegance with every fixture tailored to you. We pride
+            ourselves on being a premium brand with an eye on quality. Our
+            products are designed in Belgium, manufactured at our factories
+            across Europe and assembled locally by experts.
           </p>
         </div>
         <div>
