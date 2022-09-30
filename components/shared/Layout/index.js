@@ -7,8 +7,7 @@ import menu from "./menu.svg";
 import social from "./social";
 import search from "./search.svg";
 import classNames from "classnames";
-import { Dialog } from "@mui/material";
-import cone from "assets/cone.png";
+import maintenance from "./maintenance.png";
 
 const socialIcons = [
   { href: "", name: "Twitter", img: social.twitter },
@@ -159,12 +158,23 @@ export default function Layout({ children, fixedHead }) {
           </div>
         </div>
       </footer>
-      <Dialog open maxWidth>
-        <div style={{ padding: "2rem 5rem", textAlign: "center" }}>
-          <img src={cone.src} alt="Work in progress" style={{ height: '150px', marginBottom: '10px' }} />
-          <h1>Website under maintenance!</h1>
-        </div>
-      </Dialog>
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          height: "100%",
+          width: "100%",
+          zIndex: 1000,
+          background: "#fffdf9",
+        }}
+      >
+        <img
+          src={maintenance.src}
+          alt="Work in progress"
+          style={{ height: "100%", width: "100%", objectFit: "contain" }}
+        />
+      </div>
     </div>
   );
 }
