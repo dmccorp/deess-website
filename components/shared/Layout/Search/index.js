@@ -5,10 +5,12 @@ import { useRouter } from "next/router";
 import React from "react";
 import { components } from "react-select";
 import Async from "react-select/async";
+import { useLayoutContext } from "..";
 import searchIcon from "../search.svg";
 import styles from "./styles.module.scss";
 
 function DropdownIndicator() {
+  const { light } = useLayoutContext();
   return (
     <div className={styles.icon}>
       <Image
@@ -16,7 +18,7 @@ function DropdownIndicator() {
         height={14}
         src={searchIcon.src}
         alt="Search"
-        style={{ filter: "invert(1)" }}
+        style={light ? { filter: "invert(1)" } : null}
       />
     </div>
   );
@@ -82,8 +84,8 @@ export default function Search({
   onInputChange,
   results,
   search,
-  light
 }) {
+  const { light } = useLayoutContext();
   const router = useRouter();
   return (
     <Async
@@ -97,7 +99,7 @@ export default function Search({
         }),
         input: (base) => ({
           ...base,
-          color: light ? "#fff" : '#000',
+          color: light ? "#fff" : "#000",
           fontSize: "14px",
         }),
         option: (base, { isSelected, isFocused }) => ({
