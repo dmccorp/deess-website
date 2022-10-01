@@ -14,9 +14,9 @@
 .products {
   padding: 40px 0 0;
   display: grid;
-  grid-template-columns: repeat(2, calc(50% - 6px));
-  gap: 12px;
+  grid-template-columns: repeat(2, calc(50% - 3px));
+  gap: 6px;
   @media screen and (min-width: 800px) {
-    grid-template-columns: repeat(5, 230px);
+    grid-template-columns: repeat(5, 235.2px);
   }
 }
