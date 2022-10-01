@@ -119,15 +119,12 @@ export default function Layout({ children, fixedHead }) {
           </div>
           <div className={`${styles.col} ${styles.colL}`}>
             <div className={styles.search}>
-              <input type="text" placeholder="Search for products" />
-              <div className={styles.icon}>
-                <Image
-                  width={14}
-                  height={14}
-                  src={searchIcon.src}
-                  alt="Search"
-                />
-              </div>
+              <Search
+                results={results}
+                search={search}
+                onInputChange={onInputChange}
+                loadOptions={loadOptions}
+              />
             </div>
             <div className={styles.cols}>
               <div className={styles.items}>
