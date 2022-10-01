@@ -1,5 +1,4 @@
 import styles from "./styles.module.scss";
-import Link from "next/link";
 import NextImage from "next/image";
 import {
   ButtonBack,
@@ -15,6 +14,7 @@ import SafePreview from "lib/components/SafePreview";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import arrow from "assets/arrow.svg";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const Preview = ({ product }) => {
   const images = product.attributes.displayImages.data;
@@ -36,6 +36,8 @@ const Preview = ({ product }) => {
 
 const Catalog = ({ products }) => {
   const router = useRouter();
+  const [slides, setSlides] = useState(2);
+  useEffect(() => setSlides(parseInt(window.innerWidth / 220)), []);
   return (
     <div>
       <div className={styles.padH}>
@@ -50,7 +52,7 @@ const Catalog = ({ products }) => {
             naturalSlideWidth={12}
             naturalSlideHeight={25}
             totalSlides={products.length}
-            visibleSlides={6}
+            visibleSlides={slides}
           >
             <Slider>
               {products.map((product, index) => (
