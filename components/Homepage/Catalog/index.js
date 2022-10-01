@@ -18,14 +18,14 @@ import { useRouter } from "next/router";
 
 const Preview = ({ product }) => {
   const images = product.attributes.displayImages.data;
-  if (!images) return <Skeleton variant="rectangular" height={500} />;
+  if (!images) return <Skeleton variant="rectangular" height="100%" />;
   const img = images[0];
   return (
     <div className={styles.catalogImage}>
       <Image
         src={`${assetHost}${img.attributes.url}`}
         alt={img.attributes.alternativeText}
-        renderLoading={() => <Skeleton variant="rectangular" height={500} />}
+        renderLoading={() => <Skeleton variant="rectangular" height="100%" />}
       />
       <div className={styles.dark}>
         <div className={styles.name}>{product.attributes.name}</div>
@@ -61,7 +61,7 @@ const Catalog = ({ products }) => {
                     router.push(`/products/${product.attributes.slug}`)
                   }
                 >
-                  <SafePreview height={500}>
+                  <SafePreview height="100%">
                     <Preview product={product} />
                   </SafePreview>
                 </Slide>

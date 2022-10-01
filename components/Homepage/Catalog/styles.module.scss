@@ -45,7 +45,7 @@
 
 .catalogImage {
   position: relative;
-  height: 400px;
+  height: 100%;
   overflow: hidden;
   cursor: pointer;
   img {
@@ -56,12 +56,6 @@
 @media screen and (max-width: 1200px) {
   .catalogImage:nth-child(n + 5) {
     display: none;
-  }
-}
-
-@media screen and (min-width: 800px) {
-  .catalogImage {
-    height: 500px;
   }
 }
 
