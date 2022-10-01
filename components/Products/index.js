@@ -2,14 +2,22 @@ import { Skeleton } from "@mui/material";
 import Layout from "components/shared/Layout";
 import Tags from "components/shared/Tags";
 import { siteName } from "lib/constants";
+import { fetchProducts } from "lib/utils";
 import Head from "next/head";
 import { useEffect, useMemo, useState } from "react";
+import InfiniteScroll from "react-infinite-scroller";
 import Product from "./Product";
 import styles from "./styles.module.scss";
 
-export default function Products({ categories, products, category: cat }) {
+export default function Products({
+  categories,
+  products: initialProducts,
+  category: cat,
+}) {
   const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(false);
+  const { total } = initialProducts.meta.pagination;
+  const [products, setProducts] = useState(initialProducts.data);
   useEffect(() => {
     if (cat) {
       setCategory(cat.slug);
@@ -26,6 +34,11 @@ export default function Products({ categories, products, category: cat }) {
     ],
     [categories]
   );
+  const loadMore = async () => {
+    const page = parseInt(products.length / 25, 10) + 1;
+    const rsp = await fetchProducts(page, cat?.id);
+    setProducts([...products, ...rsp.data]);
+  };
   return (
     <Layout>
       <Head>
@@ -44,7 +57,6 @@ export default function Products({ categories, products, category: cat }) {
                 <Skeleton
                   key={index}
                   variant="rectangular"
-                  width={230}
                   height={350}
                 />
               ))}
@@ -56,11 +68,16 @@ export default function Products({ categories, products, category: cat }) {
                   <h1>No products found</h1>
                 </div>
               ) : (
-                <div className={styles.products}>
-                  {products.map((product) => (
-                    <Product key={product.id} product={product.attributes} />
-                  ))}
-                </div>
+                <InfiniteScroll
+                  loadMore={loadMore}
+                  hasMore={products.length < total}
+                >
+                  <div className={styles.products}>
+                    {products.map((product) => (
+                      <Product key={product.id} product={product.attributes} />
+                    ))}
+                  </div>
+                </InfiniteScroll>
               )}
             </>
           )}

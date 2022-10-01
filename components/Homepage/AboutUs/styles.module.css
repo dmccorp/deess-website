@@ -1,18 +1,18 @@
-.section {
+.container {
   text-align: center;
-  padding-bottom: 80px;
+  padding: 100px 0 40px;
   overflow: hidden;
-  padding-top: 40px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 @media screen and (min-width: 800px) {
-  .section {
-    text-align: left;
-    padding-top: 80px;
+  .container {
+    padding-top: 180px;
   }
 }
 
-.section p {
+.container p {
   font-weight: 400;
   font-size: 20px;
   margin: 0 0 40px;
@@ -22,15 +22,13 @@
   display: grid;
   grid-template-columns: auto auto;
   padding-bottom: 40px;
+  width: 400px;
+  margin: auto;
 }
 
 @media screen and (min-width: 800px) {
   .grid {
     padding-bottom: 80px;
-  }
-
-  .grid.inlineL {
-    grid-template-columns: auto auto auto auto;
   }
 }
 
@@ -44,43 +42,14 @@
   cursor: pointer;
 }
 
-@media screen and (min-width: 800px) {
-  .link {
-    justify-content: flex-start;
-  }
-}
-
-
-@media screen and (min-width: 800px) {
-  .splitL {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 40px;
-  }
-
-  .splitL .grid {
-    max-width: 600px;
-    aspect-ratio: 1 /1;
-  }
-
-  .splitL .gridC {
-    width: 50%;
-  }
-}
-
 .imageRight {
   position: relative;
 }
 
 .gridImg {
-  height: 50vw;
+  height: 200px;
+  width: 200px;
   position: relative;
-}
-
-@media screen and (min-width: 800px) {
-  .gridImg {
-    height: initial;
-  }
 }
 
 .gridImgLeft {

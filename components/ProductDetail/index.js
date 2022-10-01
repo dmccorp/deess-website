@@ -48,7 +48,6 @@ export default function ProductDetail({ product }) {
                       renderLoading={() => (
                         <Skeleton
                           variant="rectangular"
-                          width={480}
                           height={480 * 1.17}
                         />
                       )}

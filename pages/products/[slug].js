@@ -1,19 +1,10 @@
 import ProductDetail from "components/ProductDetail";
 import Products from "components/Products";
 import { assetHost } from "lib/constants";
+import { fetchProducts } from "lib/utils";
 import qs from "qs";
 
-async function fetchProduct(slug, category) {
-  const filters = {};
-  if (category)
-    filters.categories = {
-      id: category.id,
-    };
-  else {
-    filters.slug = {
-      $eq: slug,
-    };
-  }
+async function fetchProduct(slug) {
   const query = qs.stringify({
     populate: [
       "categories",
@@ -29,11 +20,13 @@ async function fetchProduct(slug, category) {
       "blueprint",
       "displayImages",
     ],
-    filters,
+    filters: {
+      slug: {
+        $eq: slug,
+      },
+    },
   });
-  const response = await fetch(
-    `${assetHost}/api/products?${query}`
-  );
+  const response = await fetch(`${assetHost}/api/products?${query}`);
   return response.json();
 }
 
@@ -47,20 +40,21 @@ export async function getServerSideProps(context) {
   const category = categories.data.find(
     (category) => category.attributes.slug === context.params.slug
   );
-  const products = await fetchProduct(context.params.slug, category);
   if (category) {
+    const products = await fetchProducts(1, category.id);
     return {
       props: {
-        products: products.data,
+        products: products,
         categories: categories.data,
         category: category.attributes,
       },
     };
   }
-  if (products.data.length > 0) {
+  const product = await fetchProduct(context.params.slug);
+  if (product.data.length > 0) {
     return {
       props: {
-        product: products.data[0].attributes,
+        product: product.data[0].attributes,
       },
     };
   }

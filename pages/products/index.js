@@ -1,17 +1,9 @@
 import Products from "components/Products";
 import { assetHost } from "lib/constants";
-import qs from "qs";
+import { fetchProducts } from "lib/utils";
 
 async function fetchCategories() {
   const response = await fetch(`${assetHost}/api/categories`);
-  return response.json();
-}
-
-async function fetchProducts() {
-  const query = qs.stringify({
-    populate: ["categories", "images", "displayImages"],
-  });
-  const response = await fetch(`${assetHost}/api/products?${query}`);
   return response.json();
 }
 
@@ -21,7 +13,7 @@ export async function getServerSideProps() {
   return {
     props: {
       categories: categories.data,
-      products: products.data,
+      products,
     },
   };
 }

@@ -6,7 +6,7 @@ import deess from "assets/deess.svg";
 
 const AboutUs = () => {
   return (
-    <div className={styles.section}>
+    <div className={styles.container}>
       <div className={styles.imageRight}>
         <div>
           <div className={styles.splitL}>
