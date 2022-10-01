@@ -37,7 +37,7 @@ const Preview = ({ product }) => {
 const Catalog = ({ products }) => {
   const router = useRouter();
   const [slides, setSlides] = useState(2);
-  useEffect(() => setSlides(parseInt(window.innerWidth / 220)), []);
+  useEffect(() => setSlides(parseInt(window.innerWidth / 200)), []);
   return (
     <div>
       <div className={styles.padH}>
