@@ -9,7 +9,7 @@ const fetchProducts = async (query) => {
 
 export async function getServerSideProps() {
   const products = await fetchProducts(
-    qs.stringify({ pagination: { pageSize: 6 }, populate: ["displayImages"] })
+    qs.stringify({ populate: ["displayImages"] })
   );
   const newProducts = await fetchProducts(
     qs.stringify({

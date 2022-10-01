@@ -1,8 +1,7 @@
-import { Skeleton } from "@mui/material";
+import SafePreview from "lib/components/SafePreview";
 import { assetHost } from "lib/constants";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
 import { components } from "react-select";
 import Async from "react-select/async";
 import { useLayoutContext } from "..";
@@ -24,25 +23,6 @@ function DropdownIndicator() {
   );
 }
 
-class SafePreview extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true };
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return <Skeleton width={30} height={30} />;
-    }
-
-    return this.props.children;
-  }
-}
-
 function Preview({ product }) {
   const image = product.attributes.images.data[0].attributes;
   const thumb = `${assetHost}${image.formats.thumbnail.url}`;
@@ -62,7 +42,7 @@ function Option(props) {
     <components.Option {...props}>
       <div className={styles.row}>
         <div className={styles.thumb}>
-          <SafePreview>
+          <SafePreview width={30} height={30}>
             <Preview product={props.data} />
           </SafePreview>
         </div>
