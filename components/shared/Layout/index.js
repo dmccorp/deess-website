@@ -5,8 +5,11 @@ import logo from "assets/logo.svg";
 import lightLogo from "assets/logo_light.svg";
 import menu from "./menu.svg";
 import social from "./social";
-import search from "./search.svg";
+import searchIcon from "./search.svg";
 import classNames from "classnames";
+import { fetchProducts } from "lib/utils";
+import { useState } from "react";
+import Search from "./Search";
 
 const socialIcons = [
   { href: "", name: "Twitter", img: social.twitter },
@@ -44,6 +47,20 @@ const links = [
 ];
 
 export default function Layout({ children, fixedHead }) {
+  const [search, setSearch] = useState("");
+  const [results, setResults] = useState([]);
+  const loadOptions = async (str, cb) => {
+    const rsp = await fetchProducts(1, null, str);
+    cb(rsp.data);
+    setResults(rsp.data);
+  };
+  const onInputChange = (value, x) => {
+    if (x.action === "input-change") {
+      if (!value) setResults([]);
+      setSearch(value);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <header
@@ -72,10 +89,13 @@ export default function Layout({ children, fixedHead }) {
           ))}
         </nav>
         <div className={styles.search}>
-          <input type="text" placeholder="Search for products" />
-          <div className={styles.icon}>
-            <Image width={14} height={14} src={search.src} alt="Search" />
-          </div>
+          <Search
+            results={results}
+            search={search}
+            onInputChange={onInputChange}
+            loadOptions={loadOptions}
+            light={fixedHead}
+          />
         </div>
       </header>
 
@@ -97,7 +117,7 @@ export default function Layout({ children, fixedHead }) {
           <div className={styles.search}>
             <input type="text" placeholder="Search for products" />
             <div className={styles.icon}>
-              <Image width={14} height={14} src={search.src} alt="Search" />
+              <Image width={14} height={14} src={searchIcon.src} alt="Search" />
             </div>
           </div>
           <div className={styles.cols}>
