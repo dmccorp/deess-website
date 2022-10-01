@@ -193,20 +193,20 @@ export async function generatePDF(product, selection) {
     }
   }
 
-  ly += h + 10;
-  const displayImages = product.displayImages.data;
-  if (displayImages) {
-    img = displayImages[0].attributes;
-    ratio = img.width / img.height;
-    doc.addImage(
-      `${assetHost}${img.url}`,
-      img.ext.slice(1),
-      lx,
-      ly,
-      w,
-      w / ratio
-    );
-  }
+  // ly += h + 10;
+  // const displayImages = product.displayImages.data;
+  // if (displayImages) {
+  //   img = displayImages[0].attributes;
+  //   ratio = img.width / img.height;
+  //   doc.addImage(
+  //     `${assetHost}${img.url}`,
+  //     img.ext.slice(1),
+  //     lx,
+  //     ly,
+  //     w,
+  //     w / ratio
+  //   );
+  // }
 
   // console.log(doc.internal.pageSize);
   doc.save("file.pdf");
