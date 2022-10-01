@@ -14,6 +14,7 @@ import { assetHost } from "lib/constants";
 import SafePreview from "lib/components/SafePreview";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import arrow from "assets/arrow.svg";
+import { useRouter } from "next/router";
 
 const Preview = ({ product }) => {
   const images = product.attributes.displayImages.data;
@@ -34,6 +35,7 @@ const Preview = ({ product }) => {
 };
 
 const Catalog = ({ products }) => {
+  const router = useRouter();
   return (
     <div>
       <div className={styles.padH}>
@@ -52,12 +54,16 @@ const Catalog = ({ products }) => {
           >
             <Slider>
               {products.map((product, index) => (
-                <Slide index={index} key={product.id}>
-                  <Link href={`/products/${product.attributes.slug}`}>
-                    <SafePreview height={500}>
-                      <Preview product={product} />
-                    </SafePreview>
-                  </Link>
+                <Slide
+                  index={index}
+                  key={product.id}
+                  onClick={() =>
+                    router.push(`/products/${product.attributes.slug}`)
+                  }
+                >
+                  <SafePreview height={500}>
+                    <Preview product={product} />
+                  </SafePreview>
                 </Slide>
               ))}
             </Slider>
