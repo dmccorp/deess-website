@@ -13,7 +13,7 @@ const contactInfo = [
   },
   {
     head: "Mail us",
-    content: "info@deess.com",
+    content: "info@deess.be",
     icon: icons.mail,
   },
   {

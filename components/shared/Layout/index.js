@@ -173,7 +173,7 @@ export default function Layout({ children, fixedHead }) {
             <div className={styles.space}>
               <div className={styles.listHead}>Contact</div>
               <div className={styles.listItem}>
-                <p>info@deess.com</p>
+                <p>info@deess.be</p>
               </div>
             </div>
             <div className={`${styles.space} ${styles.textS}`}>
