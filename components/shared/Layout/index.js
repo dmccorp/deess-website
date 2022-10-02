@@ -114,6 +114,7 @@ export default function Layout({ children, fixedHead }) {
               search={search}
               onInputChange={onInputChange}
               loadOptions={loadOptions}
+              light={fixedHead}
             />
           </div>
         </header>

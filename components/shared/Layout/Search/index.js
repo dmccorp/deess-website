@@ -4,12 +4,11 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { components } from "react-select";
 import Async from "react-select/async";
-import { useLayoutContext } from "..";
 import searchIcon from "../search.svg";
 import styles from "./styles.module.scss";
 
-function DropdownIndicator() {
-  const { light } = useLayoutContext();
+function DropdownIndicator({ selectProps }) {
+  const { light } = selectProps;
   return (
     <div className={styles.icon}>
       <Image
@@ -64,8 +63,8 @@ export default function Search({
   onInputChange,
   results,
   search,
+  light,
 }) {
-  const { light } = useLayoutContext();
   const router = useRouter();
   return (
     <Async
@@ -95,6 +94,7 @@ export default function Search({
         DropdownIndicator,
         Option,
       }}
+      light={light}
       onChange={(option) => router.push(`/products/${option.attributes.slug}`)}
       getOptionLabel={(product) => product.attributes.name}
       getOptionValue={(product) => product.attributes.slug}
