@@ -1,10 +1,17 @@
 .container {
   font-size: 20px;
   line-height: 40px;
-  padding: 100px 0 200px;
+  padding: 100px 20px 200px;
+  @media screen and (min-width: 800px) {
+    padding: 100px 0 200px;
+  }
   h1 {
-    font-size: 60px;
     margin: 0;
+    font-size: 40px;
+    line-height: 50px;
+    @media screen and (min-width: 800px) {
+      font-size: 60px;
+    }
   }
 }
 .top {
@@ -27,7 +34,10 @@
     .i4,
     .i5 {
       position: absolute;
-      width: 300px;
+      width: 40%;
+      @media screen and (min-width: 800px) {
+        width: 300px;
+      }
     }
     .i1 {
       top: 0;
@@ -35,16 +45,25 @@
       width: 400px;
     }
     .i2 {
-      top: 35px;
+      top: 45px;
       left: 0;
       right: 0;
       margin: auto;
-      width: 500px;
+      height: 300px;
+      width: initial;
+      @media screen and (min-width: 800px) {
+        top: 35px;
+        width: 500px;
+        height: initial;
+      }
     }
     .i3 {
       top: 0;
       right: 0;
-      width: 400px;
+      width: 50%;
+      @media screen and (min-width: 800px) {
+        width: 400px;
+      }
     }
     .i4 {
       left: 50px;
@@ -60,19 +79,26 @@
   position: relative;
   .text {
     max-width: 1200px;
+    padding: 0 0 40px;
     margin: auto;
-    .inner {
-      width: 60%;
+    @media screen and (min-width: 800px) {
+      .inner {
+        width: 60%;
+      }
     }
   }
   h1 {
     margin-bottom: 60px;
   }
   .image {
-    width: 460px;
-    height: 500px;
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: relative;
+    height: 300px;
+    @media screen and (min-width: 800px) {
+      width: 460px;
+      height: 500px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
 }
