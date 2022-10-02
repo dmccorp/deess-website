@@ -27,27 +27,31 @@
     .i4,
     .i5 {
       position: absolute;
+      width: 300px;
     }
     .i1 {
       top: 0;
       left: 0;
+      width: 400px;
     }
     .i2 {
-      top: 0px;
+      top: 35px;
       left: 0;
       right: 0;
       margin: auto;
+      width: 500px;
     }
     .i3 {
       top: 0;
       right: 0;
+      width: 400px;
     }
     .i4 {
       left: 50px;
       bottom: 0;
     }
     .i5 {
-      right: 0;
+      right: 50px;
       bottom: 0;
     }
   }
