@@ -73,10 +73,10 @@ export async function generatePDF(product, selection) {
     return y + (lines.length - 1) * 5;
   }
   const doc = new jsPDF();
-  let ly = 22;
+  let ly = 45;
   doc.setFont("Quicksand-Bold");
   doc.setFontSize(25);
-  doc.text(product.name, doc.internal.pageSize.width / 2, ly, "center");
+  doc.text(product.name, 20, ly);
 
   ly += 7;
   doc.setFont("Quicksand-SemiBold");
@@ -86,13 +86,7 @@ export async function generatePDF(product, selection) {
     .map((category) => category.attributes.name)
     .join(", ")
     .toUpperCase();
-  doc.text(category, doc.internal.pageSize.width / 2, ly, "center");
-
-  ly += 23;
-  doc.setFont("Quicksand-Bold");
-  doc.setTextColor("#000");
-  doc.setFontSize(18);
-  doc.text("Product description", 20, ly);
+  doc.text(category, 20, ly);
 
   ly += 12;
   doc.setFont("Quicksand-Bold");
