@@ -1,26 +1,39 @@
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 100px 0 120px;
+  padding: 60px 20px 120px;
+  @media screen and (min-width: 800px) {
+    padding: 100px 20px 120px;
+  }
   font-size: 18px;
   h1 {
-    font-size: 60px;
+    font-size: 40px;
+    margin: 0 0 30px;
+    @media screen and (min-width: 800px) {
+      margin: 0;
+      font-size: 60px;
+    }
   }
   h2 {
-    font-size: 32px;
-    color: 626262;
-  }
-  h1,
-  h2 {
+    font-size: 20px;
     margin: 0;
+    @media screen and (min-width: 800px) {
+      font-size: 32px;
+    }
+    color: 626262;
   }
 }
 .head {
-  padding-bottom: 120px;
+  padding-bottom: 60px;
+  @media screen and (min-width: 800px) {
+    padding-bottom: 120px;
+  }
 }
 
 .row {
-  display: flex;
+  @media screen and (min-width: 800px) {
+    display: flex;
+  }
 }
 .rowGap {
   gap: 95px;
@@ -35,6 +48,10 @@
   flex-direction: column;
   gap: 10px;
   font-weight: bold;
+  margin: 0 0 40px;
+  @media screen and (min-width: 800px) {
+    margin: 0;
+  }
   input,
   textarea {
     border-width: 0 0 1px 0;
@@ -46,6 +63,10 @@
 }
 
 .iconCol {
+  margin: 0 0 20px;
+  @media screen and (min-width: 800px) {
+    margin: 0;
+  }
   img {
     width: 20px;
   }
@@ -57,13 +78,19 @@
   gap: 22px;
 }
 .contactForm {
-  width: 65%;
+  margin: 0 0 40px;
+  @media screen and (min-width: 800px) {
+    width: 65%;
+    margin: 0;
+    gap: 55px;
+  }
   display: flex;
   flex-direction: column;
-  gap: 55px;
 }
 .contactInfo {
-  width: 35%;
+  @media screen and (min-width: 800px) {
+    width: 35%;
+  }
   display: flex;
   flex-direction: column;
   gap: 55px;
