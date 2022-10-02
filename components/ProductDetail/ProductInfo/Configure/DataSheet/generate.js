@@ -209,7 +209,7 @@ export async function generatePDF(product, selection) {
   // }
 
   // console.log(doc.internal.pageSize);
-  doc.save("file.pdf");
+  doc.save(`${selection.code}.pdf`);
   // doc.output("dataurlnewwindow");
   // return doc.output("datauristring");
 }
