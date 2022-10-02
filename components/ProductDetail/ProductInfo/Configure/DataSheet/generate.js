@@ -150,7 +150,7 @@ export async function generatePDF(product, selection) {
   doc.text("CONTACT", 165, 270);
   doc.setFont("Quicksand-SemiBold");
   doc.setTextColor("#858080");
-  doc.text("contact@deess.com", 165, 278);
+  doc.text("info@deess.com", 165, 278);
 
   let ratio = 4.57;
   let w = 45;
