@@ -5,7 +5,6 @@ import logo from "assets/logo.svg";
 import lightLogo from "assets/logo_light.svg";
 import menu from "./menu.svg";
 import social from "./social";
-import searchIcon from "./search.svg";
 import classNames from "classnames";
 import { fetchProducts } from "lib/utils";
 import { createContext, useContext, useState } from "react";
@@ -53,6 +52,7 @@ export const useLayoutContext = () => useContext(LayoutContext);
 export default function Layout({ children, fixedHead }) {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
+  const [menuOpen, setMenuOpen] = useState(false);
   const loadOptions = async (str, cb) => {
     const rsp = await fetchProducts(1, null, str);
     cb(rsp.data);
@@ -83,8 +83,23 @@ export default function Layout({ children, fixedHead }) {
               />
             </div>
           </Link>
-          <div className={styles.menu}>
-            <Image src={menu.src} width={22} height={18} alt="Menu" />
+          <div className={classNames(styles.menu, { [styles.open]: menuOpen })}>
+            <div className={styles.button}>
+              <button onClick={() => setMenuOpen(!menuOpen)}>
+                {menuOpen ? (
+                  <>&times;</>
+                ) : (
+                  <Image src={menu.src} width={22} height={18} alt="Menu" />
+                )}
+              </button>
+            </div>
+            <div className={styles.list}>
+              {links.map((link) => (
+                <div key={link.link}>
+                  <Link href={link.link}>{link.label}</Link>
+                </div>
+              ))}
+            </div>
           </div>
           <nav className={styles.nav}>
             {links.map((link) => (
