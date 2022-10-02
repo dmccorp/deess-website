@@ -1,23 +1,43 @@
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 100px 0 120px;
+  padding: 60px 20px 120px;
+  @media screen and (min-width: 800px) {
+    padding: 100px 0 120px;
+  }
 }
 
 .row {
-  display: flex;
-  gap: 55px;
+  @media screen and (min-width: 800px) {
+    display: flex;
+    gap: 55px;
+  }
 }
 
 .head {
   h1 {
-    font-size: 60px;
+    margin: 0 0 30px;
+    font-size: 30px;
+    @media screen and (min-width: 800px) {
+      margin: 0;
+      font-size: 60px;
+    }
   }
 }
 
-.head,
-.form {
-  width: 50%;
+@media screen and (min-width: 800px) {
+  .head,
+  .form {
+    width: 50%;
+  }
+}
+
+.field {
+  margin: 0 0 30px;
+  flex: 1;
+  @media screen and (min-width: 800px) {
+    margin: 0;
+  }
 }
 
 .form {

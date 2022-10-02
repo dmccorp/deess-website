@@ -27,11 +27,17 @@ export default function Downloads() {
           </div>
           <div className={styles.form}>
             <div className={styles.row}>
-              <Input label="Name" />
-              <Input label="Email" />
+              <div className={styles.field}>
+                <Input label="Name" />
+              </div>
+              <div className={styles.field}>
+                <Input label="Email" />
+              </div>
             </div>
             <div className={styles.row}>
-              <Input label="Company" />
+              <div className={styles.field}>
+                <Input label="Company" />
+              </div>
               <Select
                 options={options.map((option) => ({
                   label: option,
