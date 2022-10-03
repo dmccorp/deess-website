@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 import Image from "next/image";
 import images from "./images";
 import Link from "components/shared/Link";
@@ -32,7 +32,7 @@ const Display1 = () => {
             ))}
           </div>
         </div>
-        <Link to="/products">EXPLORE MORE PRODUCTS</Link>
+        <Link to="/products">EXPLORE OUR PRODUCTS</Link>
       </div>
     </div>
   );

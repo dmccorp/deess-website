@@ -28,7 +28,7 @@ const Craft = () => {
             </p>
           </div>
           <div className={styles.link}>
-            <Link to="/bespoke">EXPLORE MORE PRODUCTS</Link>
+            <Link to="/bespoke">DISCOVER DÉESS</Link>
           </div>
         </div>
         <div className={`${styles.lImg} ${styles.col}`}>

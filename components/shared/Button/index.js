@@ -6,7 +6,7 @@ export default function Button({ children, light = false, ...props }) {
     <button
       {...props}
       className={classNames(styles.container, {
-        [styles.light]: props.light,
+        [styles.light]: light,
       })}
     >
       {children}

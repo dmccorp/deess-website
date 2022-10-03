@@ -9,6 +9,7 @@
 
 .header.fixed {
   position: absolute;
+  color: #fff;
 }
 
 .footer {
@@ -87,9 +88,51 @@
   padding-bottom: 40px;
 }
 
-@media screen and (min-width: 800px) {
-  .menu {
+.menu {
+  .list {
     display: none;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 24px;
+    text-align: center;
+    flex: 1;
+    justify-content: center;
+  }
+  &.open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1;
+    .list {
+      display: flex;
+    }
+    .button {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
+    }
+  }
+  button {
+    background: transparent;
+    border: none;
+    font-size: 30px;
+  }
+  @media screen and (min-width: 800px) {
+    display: none;
+  }
+}
+.fixed {
+  .menu {
+    background: #000;
+    button {
+      color: #fff;
+    }
   }
 }
 
@@ -115,6 +158,12 @@
 
 .search {
   position: relative;
+}
+
+.search .icon {
+  position: absolute;
+  right: 26px;
+  top: 16px;
 }
 
 .search {

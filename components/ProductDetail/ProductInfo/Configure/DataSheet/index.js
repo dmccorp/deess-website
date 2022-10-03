@@ -96,7 +96,7 @@ export default function DataSheet({ product, selection }) {
           </div>
           <div>
             <h4>CONTACT</h4>
-            <div className={styles.text}>contact@deess.com</div>
+            <div className={styles.text}>info@deess.be</div>
           </div>
         </div>
       </div>

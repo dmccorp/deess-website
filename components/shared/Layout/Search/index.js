@@ -1,16 +1,14 @@
-import { Skeleton } from "@mui/material";
+import SafePreview from "lib/components/SafePreview";
 import { assetHost } from "lib/constants";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
 import { components } from "react-select";
 import Async from "react-select/async";
-import { useLayoutContext } from "..";
 import searchIcon from "../search.svg";
 import styles from "./styles.module.scss";
 
-function DropdownIndicator() {
-  const { light } = useLayoutContext();
+function DropdownIndicator({ selectProps }) {
+  const { light } = selectProps;
   return (
     <div className={styles.icon}>
       <Image
@@ -22,25 +20,6 @@ function DropdownIndicator() {
       />
     </div>
   );
-}
-
-class SafePreview extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true };
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return <Skeleton width={30} height={30} />;
-    }
-
-    return this.props.children;
-  }
 }
 
 function Preview({ product }) {
@@ -62,7 +41,7 @@ function Option(props) {
     <components.Option {...props}>
       <div className={styles.row}>
         <div className={styles.thumb}>
-          <SafePreview>
+          <SafePreview width={30} height={30}>
             <Preview product={props.data} />
           </SafePreview>
         </div>
@@ -84,8 +63,8 @@ export default function Search({
   onInputChange,
   results,
   search,
+  light,
 }) {
-  const { light } = useLayoutContext();
   const router = useRouter();
   return (
     <Async
@@ -115,6 +94,7 @@ export default function Search({
         DropdownIndicator,
         Option,
       }}
+      light={light}
       onChange={(option) => router.push(`/products/${option.attributes.slug}`)}
       getOptionLabel={(product) => product.attributes.name}
       getOptionValue={(product) => product.attributes.slug}

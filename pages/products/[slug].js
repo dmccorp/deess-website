@@ -1,7 +1,7 @@
 import ProductDetail from "components/ProductDetail";
 import Products from "components/Products";
 import { assetHost } from "lib/constants";
-import { fetchProducts } from "lib/utils";
+import { fetchCategories, fetchProductsByCategory } from "lib/utils";
 import qs from "qs";
 
 async function fetchProduct(slug) {
@@ -30,18 +30,13 @@ async function fetchProduct(slug) {
   return response.json();
 }
 
-async function fetchCategories() {
-  const response = await fetch(`${assetHost}/api/categories`);
-  return response.json();
-}
-
 export async function getServerSideProps(context) {
   const categories = await fetchCategories();
   const category = categories.data.find(
     (category) => category.attributes.slug === context.params.slug
   );
   if (category) {
-    const products = await fetchProducts(1, category.id);
+    const products = await fetchProductsByCategory(1, category.id);
     return {
       props: {
         products: products,

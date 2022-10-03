@@ -15,7 +15,7 @@ function Colors({ product }) {
 function IlluminationInfo({ product, configureMode }) {
   return (
     <div className={styles.column}>
-      <h3>Illumination info</h3>
+      <h3>Technical Specifications</h3>
       <div>
         <ul>
           {!configureMode && (

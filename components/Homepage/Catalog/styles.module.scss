@@ -30,45 +30,33 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: auto auto;
-  padding-bottom: 40px;
+  position: relative;
+}
+
+.catalog {
+  position: relative;
+  padding-bottom: 60px;
 }
 
 @media screen and (min-width: 800px) {
-  .grid {
+  .catalog {
     padding-bottom: 120px;
-  }
-
-  .grid.inlineL {
-    grid-template-columns: repeat(4, auto);
   }
 }
 
 .catalogImage {
   position: relative;
-  height: 400px;
+  height: 100%;
   overflow: hidden;
   cursor: pointer;
-}
-
-@media screen and (min-width: 1200px) {
-  .grid.inlineL {
-    grid-template-columns: repeat(6, auto);
+  img {
+    object-fit: cover;
   }
 }
-
 
 @media screen and (max-width: 1200px) {
-  .catalogImage:nth-child(n+5) {
+  .catalogImage:nth-child(n + 5) {
     display: none;
-  }
-}
-
-
-@media screen and (min-width: 800px) {
-  .catalogImage {
-    height: 500px;
   }
 }
 
@@ -76,7 +64,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, .3);
+  background: rgba(0, 0, 0, 0.3);
   width: 100%;
   height: 100%;
   padding: 44px 30px;
@@ -86,4 +74,35 @@
   color: #fff;
   font-size: 20px;
   font-weight: 500;
+}
+
+.nextButton,
+.backButton {
+  position: absolute;
+  background: transparent;
+  border: none;
+  padding: 0;
+  bottom: 26px;
+  filter: invert(1);
+  @media screen and (min-width: 1500px) {
+    bottom: 46px;
+  }
+  & > span {
+    vertical-align: top;
+  }
+}
+
+.backButton {
+  left: 26px;
+  @media screen and (min-width: 1500px) {
+    left: 46px;
+  }
+  transform: rotate(-180deg);
+}
+
+.nextButton {
+  right: 26px;
+  @media screen and (min-width: 1500px) {
+    right: 46px;
+  }
 }

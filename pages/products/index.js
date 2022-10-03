@@ -1,15 +1,9 @@
 import Products from "components/Products";
-import { assetHost } from "lib/constants";
-import { fetchProducts } from "lib/utils";
-
-async function fetchCategories() {
-  const response = await fetch(`${assetHost}/api/categories`);
-  return response.json();
-}
+import { fetchCategories, fetchProductsByCategory } from "lib/utils";
 
 export async function getServerSideProps() {
   const categories = await fetchCategories();
-  const products = await fetchProducts();
+  const products = await fetchProductsByCategory();
   return {
     props: {
       categories: categories.data,

@@ -12,7 +12,9 @@ export default function Product({ product }) {
       <div className={styles.container} onClick={() => setClicked(true)}>
         <figure>
           <FirstImage images={product.images.data} />
-          <FirstImage images={product.displayImages.data} />
+          <div className={styles.display}>
+            <FirstImage images={product.displayImages.data} />
+          </div>
           <div className={styles.text}>
             <figcaption>{product.name}</figcaption>
             <div>

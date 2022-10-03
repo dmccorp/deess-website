@@ -2,7 +2,7 @@ import { Skeleton } from "@mui/material";
 import Layout from "components/shared/Layout";
 import Tags from "components/shared/Tags";
 import { siteName } from "lib/constants";
-import { fetchProducts } from "lib/utils";
+import { fetchProductsByCategory } from "lib/utils";
 import Head from "next/head";
 import { useEffect, useMemo, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
@@ -12,18 +12,18 @@ import styles from "./styles.module.scss";
 export default function Products({
   categories,
   products: initialProducts,
-  category: cat,
+  category,
 }) {
-  const [category, setCategory] = useState("");
+  const { total } = useMemo(
+    () => initialProducts.meta.pagination,
+    [initialProducts]
+  );
   const [loading, setLoading] = useState(false);
-  const { total } = initialProducts.meta.pagination;
   const [products, setProducts] = useState(initialProducts.data);
   useEffect(() => {
-    if (cat) {
-      setCategory(cat.slug);
-      setLoading(false);
-    }
-  }, [cat]);
+    setProducts(initialProducts.data);
+    setLoading(false);
+  }, [initialProducts.data]);
   const transformedCategories = useMemo(
     () => [
       { name: "All", value: "" },
@@ -36,9 +36,10 @@ export default function Products({
   );
   const loadMore = async () => {
     const page = parseInt(products.length / 25, 10) + 1;
-    const rsp = await fetchProducts(page, cat?.id);
+    const rsp = await fetchProductsByCategory(page, category?.id);
     setProducts([...products, ...rsp.data]);
   };
+  const categoryChanged = () => setLoading(true);
   return (
     <Layout>
       <Head>
@@ -47,18 +48,14 @@ export default function Products({
       <div className={styles.container}>
         <Tags
           list={transformedCategories}
-          onChange={() => setLoading(true)}
-          current={category}
+          onChange={categoryChanged}
+          current={category?.slug || ""}
         />
         <div>
           {loading ? (
             <div className={styles.products}>
               {[...Array(5).keys()].map((index) => (
-                <Skeleton
-                  key={index}
-                  variant="rectangular"
-                  height={350}
-                />
+                <Skeleton key={index} variant="rectangular" height={350} />
               ))}
             </div>
           ) : (
