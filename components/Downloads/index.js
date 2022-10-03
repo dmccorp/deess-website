@@ -91,14 +91,16 @@ export default function Downloads() {
               left: "50%",
               transform: "translate(-50%, -50%)",
               borderRadius: 2,
-              boxShadow: 10,
+              boxShadow: 24,
             }}
           >
-            <h3>We thank you for your interest in Deess.</h3>
-            <p>
+            <Typography variant="h6" sx={{ mb: 2 }}>
+              We thank you for your interest in Deess.
+            </Typography>
+            <Typography>
               You will receive an email soon, with a link to download our
               latetst catalogue
-            </p>
+            </Typography>
           </Box>
         </Modal>
       </div>
