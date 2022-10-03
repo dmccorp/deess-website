@@ -1,9 +1,13 @@
 import Products from "components/Products";
 import { assetHost } from "lib/constants";
 import { fetchProducts } from "lib/utils";
+import qs from "qs";
 
 async function fetchCategories() {
-  const response = await fetch(`${assetHost}/api/categories`);
+  const query = qs.stringify({
+    sort: ["order"],
+  });
+  const response = await fetch(`${assetHost}/api/categories?${query}`);
   return response.json();
 }
 
