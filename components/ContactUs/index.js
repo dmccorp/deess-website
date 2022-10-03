@@ -16,11 +16,11 @@ const contactInfo = [
     content: "info@deess.be",
     icon: icons.mail,
   },
-  {
-    head: "Call us",
-    content: "+453 589758549",
-    icon: icons.call,
-  },
+  // {
+  //   head: "Call us",
+  //   content: "+453 589758549",
+  //   icon: icons.call,
+  // },
 ];
 
 const ContactUs = () => {
