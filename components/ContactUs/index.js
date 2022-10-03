@@ -118,7 +118,7 @@ const ContactUs = () => {
             <Typography variant="h6" sx={{ mb: 2 }}>
               We thank you for your interest in Deess.
             </Typography>
-            <Typography>You will receive get back to you soon.</Typography>
+            <Typography>We will get back to you soon.</Typography>
           </Box>
         </Modal>
       </div>
