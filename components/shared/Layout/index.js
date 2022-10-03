@@ -187,7 +187,7 @@ export default function Layout({ children, fixedHead }) {
             </div>
           </div>
         </footer>
-        <Maintenance />
+        {/* <Maintenance /> */}
       </div>
     </LayoutContext.Provider>
   );
