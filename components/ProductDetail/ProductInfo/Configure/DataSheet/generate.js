@@ -2,9 +2,9 @@ import { assetHost } from "lib/constants";
 import jsPDF from "jspdf";
 import logoDark from "./assets/logo_black.png";
 import logoLight from "./assets/logo_gray.png";
-import { Canvg, presets } from 'canvg';
+import { Canvg, presets } from "canvg";
 import "./fonts";
-import './svg';
+import "./svg";
 
 function fillDots(doc, pL, pT, w, h) {
   const s = 5;
@@ -59,18 +59,19 @@ async function rasterize2(img, w, h) {
 export async function generatePDF(product, selection) {
   function addCharacteristic(key, value = "", y) {
     const keyWidth = 35;
+    const spacing = 3;
     const lines = doc.splitTextToSize(key, keyWidth);
     doc.setTextColor("#000");
     doc.setFontSize(9);
     const x = 20;
     lines.forEach((line, i) => {
       doc.setFont("Quicksand-Bold");
-      doc.text(line, x, y + i * 5);
+      doc.text(line, x, y + i * spacing);
     });
 
     doc.setFont("Quicksand-Regular");
     doc.text(value, x + keyWidth, y);
-    return y + (lines.length - 1) * 5;
+    return y + (lines.length - 1) * spacing;
   }
   const doc = new jsPDF();
   let ly = 45;
@@ -103,7 +104,7 @@ export async function generatePDF(product, selection) {
   doc.setFont("Quicksand-Bold");
   doc.setTextColor("#B8A078");
   doc.setFontSize(11);
-  doc.text("Illumination info", 20, ly);
+  doc.text("Technical Specifications", 20, ly);
 
   ly += 15;
   const illumination = [
@@ -126,10 +127,27 @@ export async function generatePDF(product, selection) {
   doc.text("Dimensions", 20, ly);
 
   const dimensions = [...product.dimensions.map((i) => [i.name, i.value])];
-  dimensions.reduce(
+  ly = dimensions.reduce(
     (p, c) => addCharacteristic(c[0], c[1], p) + spacing,
     ly + 15
   );
+  if (product.cutoutDimensions) {
+    const first = product.cutoutDimensions[0];
+    addCharacteristic(
+      "Cut-out dimensions",
+      first.name ? `${first.name} - ${first.value}` : first.value,
+      ly
+    );
+    ly = ly + spacing;
+    product.cutoutDimensions.slice(1).forEach((row) => {
+      addCharacteristic(
+        "",
+        row.name ? `${row.name} - ${row.value}` : row.value,
+        ly
+      );
+      ly = ly + spacing;
+    });
+  }
 
   doc.setFont("Quicksand-Bold");
   doc.setTextColor("#000");
@@ -154,13 +172,31 @@ export async function generatePDF(product, selection) {
   w = 70;
   const lx = 120;
   let h = -10;
-  const blueprint = product.blueprint.data;
   let img;
+  ly = 40;
+
+  const displayImages = product.images.data;
+  if (displayImages) {
+    img = displayImages[0].attributes;
+    ratio = img.width / img.height;
+    h = w / ratio;
+    doc.addImage(
+      `${assetHost}${img.url}`,
+      img.ext.slice(1),
+      lx,
+      ly,
+      w,
+      w / ratio
+    );
+  }
+
+  ly += h + 10;
+
+  const blueprint = product.blueprint.data;
   if (blueprint) {
     img = blueprint.attributes;
     ratio = img.width / img.height;
     h = w / ratio;
-    ly = 50;
     doc.setDrawColor(221, 221, 221);
     doc.rect(lx, ly, w, h);
     fillDots(doc, lx, ly, w, h);
@@ -174,7 +210,7 @@ export async function generatePDF(product, selection) {
       // doc.addSVG(svg, lx, ly, w, h);
       // ---
       const imgData = await rasterize2(img, w, h);
-      doc.addImage(imgData, 'png', lx, ly, w, h);
+      doc.addImage(imgData, "png", lx, ly, w, h);
       // ---
       // const imgData = await rasterize(svg, w, h);
       // doc.addImage(imgData, 'png', lx, ly, w, h);
@@ -186,21 +222,6 @@ export async function generatePDF(product, selection) {
       doc.addImage(`${assetHost}${img.url}`, img.ext.slice(1), lx, ly, w, h);
     }
   }
-
-  // ly += h + 10;
-  // const displayImages = product.displayImages.data;
-  // if (displayImages) {
-  //   img = displayImages[0].attributes;
-  //   ratio = img.width / img.height;
-  //   doc.addImage(
-  //     `${assetHost}${img.url}`,
-  //     img.ext.slice(1),
-  //     lx,
-  //     ly,
-  //     w,
-  //     w / ratio
-  //   );
-  // }
 
   // console.log(doc.internal.pageSize);
   doc.save(`${selection.code}.pdf`);
