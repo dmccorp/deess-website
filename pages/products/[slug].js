@@ -1,7 +1,7 @@
 import ProductDetail from "components/ProductDetail";
 import Products from "components/Products";
 import { assetHost } from "lib/constants";
-import { fetchProductsByCategory } from "lib/utils";
+import { fetchCategories, fetchProductsByCategory } from "lib/utils";
 import qs from "qs";
 
 async function fetchProduct(slug) {
@@ -27,11 +27,6 @@ async function fetchProduct(slug) {
     },
   });
   const response = await fetch(`${assetHost}/api/products?${query}`);
-  return response.json();
-}
-
-async function fetchCategories() {
-  const response = await fetch(`${assetHost}/api/categories`);
   return response.json();
 }
 
