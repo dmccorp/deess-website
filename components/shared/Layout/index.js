@@ -13,7 +13,6 @@ import Search from "./Search";
 import {
   Alert,
   createTheme,
-  IconButton,
   Snackbar,
   ThemeProvider,
 } from "@mui/material";
