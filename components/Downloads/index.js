@@ -2,7 +2,7 @@ import { CircularProgress, Modal, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import Button from "components/shared/Button";
 import Input from "components/shared/Input";
-import Layout from "components/shared/Layout";
+import { useLayoutContext } from "components/shared/Layout";
 import Select from "components/shared/Select";
 import { siteName } from "lib/constants";
 import Head from "next/head";
@@ -20,19 +20,32 @@ const options = [
 export default function Downloads() {
   const [submitted, setSubmitted] = useState(false);
   const [busy, setBusy] = useState(false);
-  const onSubmit = (e) => {
+  const { showSnackbar } = useLayoutContext();
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = {};
     formData.forEach((value, key) => (data[key] = value));
     setBusy(true);
-    setTimeout(() => {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        data: [data.name, data.email, data.company, data.type],
+      }),
+    });
+    if (response.status === 200) {
       setBusy(false);
       setSubmitted(true);
-    }, 2000);
+    } else {
+      showSnackbar("Something went wrong", "error");
+      setBusy(false);
+    }
   };
   return (
-    <Layout>
+    <div>
       <Head>
         <title>Download - {siteName}</title>
       </Head>
@@ -52,7 +65,7 @@ export default function Downloads() {
             </div>
             <div className={styles.row}>
               <div className={styles.field}>
-                <Input label="Company" type="text" />
+                <Input label="Company" type="text" name="company" />
               </div>
               <Select
                 options={options.map((option) => ({
@@ -104,6 +117,6 @@ export default function Downloads() {
           </Box>
         </Modal>
       </div>
-    </Layout>
+    </div>
   );
 }
