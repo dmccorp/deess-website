@@ -6,6 +6,7 @@ import lightLogo from "assets/logo_light.svg";
 import menu from "./menu.svg";
 import social from "./social";
 import classNames from "classnames";
+import Maintenance from "./Maintenance";
 import { searchProducts } from "lib/utils";
 import { createContext, useContext, useState } from "react";
 import Search from "./Search";
@@ -239,6 +240,7 @@ export default function Layout({ children, fixedHead }) {
               </Alert>
             )}
           </Snackbar>
+          {/* <Maintenance /> */}
         </div>
       </LayoutContext.Provider>
     </ThemeProvider>
