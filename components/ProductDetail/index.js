@@ -25,11 +25,6 @@ export default function ProductDetail({ product }) {
       <div className={styles.container}>
         <div className={styles.mobileTitle}>
           <h1>{product.name}</h1>
-          <div className={styles.cat}>
-            {product.categories.data
-              .map((category) => category.attributes.name)
-              .join(", ")}
-          </div>
         </div>
         <div className={styles.productDisplay}>
           <div className={styles.productPicture}>
@@ -65,11 +60,6 @@ export default function ProductDetail({ product }) {
               </div>
               <div className={styles.big}>
                 <h1>{product.name}</h1>
-                <div className={styles.cat}>
-                  {product.categories.data
-                    .map((category) => category.attributes.name)
-                    .join(", ")}
-                </div>
               </div>
               <div className={styles.desc}>
                 <p>{product.description}</p>

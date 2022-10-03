@@ -7,7 +7,7 @@ const Hero = () => {
     <div className={styles.hero}>
       <div className={styles.bg} style={{ backgroundImage: `url(${bg.src})` }}>
         <div className={styles.limHead}>
-          <h1>FEEL THE LIGHT</h1>
+          {/* <h1>FEEL THE LIGHT</h1> */}
         </div>
         {/* <div className={styles.imgLeft}>
           <Image width={106} height={210} src={imgLeft.src} alt="image" />
