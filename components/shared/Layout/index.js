@@ -9,7 +9,13 @@ import classNames from "classnames";
 import { searchProducts } from "lib/utils";
 import { createContext, useContext, useState } from "react";
 import Search from "./Search";
-import { createTheme, ThemeProvider } from "@mui/material";
+import {
+  Alert,
+  createTheme,
+  IconButton,
+  Snackbar,
+  ThemeProvider,
+} from "@mui/material";
 
 const socialIcons = [
   { href: "", name: "Twitter", img: social.twitter },
@@ -60,6 +66,7 @@ export default function Layout({ children, fixedHead }) {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [message, setMessage] = useState();
   const loadOptions = async (str, cb) => {
     const rsp = await searchProducts(str);
     cb(rsp.data);
@@ -71,10 +78,17 @@ export default function Layout({ children, fixedHead }) {
       setSearch(value);
     }
   };
+  const closeSnackbar = () => setMessage();
+  const showSnackbar = (message, type = "info") => {
+    setMessage({
+      text: message,
+      type,
+    });
+  };
 
   return (
     <ThemeProvider theme={theme}>
-      <LayoutContext.Provider value={{ light: fixedHead }}>
+      <LayoutContext.Provider value={{ light: fixedHead, showSnackbar }}>
         <div className={styles.container}>
           <header
             className={classNames(styles.header, {
@@ -214,6 +228,17 @@ export default function Layout({ children, fixedHead }) {
               </div>
             </div>
           </footer>
+          <Snackbar
+            open={Boolean(message)}
+            autoHideDuration={6000}
+            anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+          >
+            {message && (
+              <Alert severity={message.type} onClose={closeSnackbar}>
+                {message.text}
+              </Alert>
+            )}
+          </Snackbar>
         </div>
       </LayoutContext.Provider>
     </ThemeProvider>
