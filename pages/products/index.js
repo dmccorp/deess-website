@@ -1,6 +1,6 @@
 import Products from "components/Products";
 import { assetHost } from "lib/constants";
-import { fetchProducts } from "lib/utils";
+import { fetchProductsByCategory } from "lib/utils";
 import qs from "qs";
 
 async function fetchCategories() {
@@ -13,7 +13,7 @@ async function fetchCategories() {
 
 export async function getServerSideProps() {
   const categories = await fetchCategories();
-  const products = await fetchProducts();
+  const products = await fetchProductsByCategory();
   return {
     props: {
       categories: categories.data,

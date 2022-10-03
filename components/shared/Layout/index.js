@@ -6,7 +6,7 @@ import lightLogo from "assets/logo_light.svg";
 import menu from "./menu.svg";
 import social from "./social";
 import classNames from "classnames";
-import { fetchProducts } from "lib/utils";
+import { searchProducts } from "lib/utils";
 import { createContext, useContext, useState } from "react";
 import Search from "./Search";
 
@@ -54,7 +54,7 @@ export default function Layout({ children, fixedHead }) {
   const [results, setResults] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
   const loadOptions = async (str, cb) => {
-    const rsp = await fetchProducts(1, null, str);
+    const rsp = await searchProducts(str);
     cb(rsp.data);
     setResults(rsp.data);
   };

@@ -2,7 +2,7 @@ import { Skeleton } from "@mui/material";
 import Layout from "components/shared/Layout";
 import Tags from "components/shared/Tags";
 import { siteName } from "lib/constants";
-import { fetchProducts } from "lib/utils";
+import { fetchProductsByCategory } from "lib/utils";
 import Head from "next/head";
 import { useEffect, useMemo, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
@@ -36,7 +36,7 @@ export default function Products({
   );
   const loadMore = async () => {
     const page = parseInt(products.length / 25, 10) + 1;
-    const rsp = await fetchProducts(page, cat?.id);
+    const rsp = await fetchProductsByCategory(page, cat?.id);
     setProducts([...products, ...rsp.data]);
   };
   return (
