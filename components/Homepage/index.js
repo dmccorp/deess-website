@@ -33,7 +33,7 @@ const Homepage = ({ products, newProducts }) => {
   return (
     <Layout fixedHead>
       <Head>
-        <title>{siteName}</title>
+        <title>déess | lighting redefined</title>
       </Head>
       <Hero />
       <Display1 />
