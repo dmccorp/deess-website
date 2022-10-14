@@ -80,14 +80,14 @@ export async function generatePDF(product, selection) {
   doc.text(product.name, 20, ly);
 
   ly += 7;
-  doc.setFont("Quicksand-SemiBold");
-  doc.setFontSize(11);
-  doc.setTextColor("#B6B6B6");
-  const category = product.categories.data
-    .map((category) => category.attributes.name)
-    .join(", ")
-    .toUpperCase();
-  doc.text(category, 20, ly);
+  // doc.setFont("Quicksand-SemiBold");
+  // doc.setFontSize(11);
+  // doc.setTextColor("#B6B6B6");
+  // const category = product.categories.data
+  //   .map((category) => category.attributes.name)
+  //   .join(", ")
+  //   .toUpperCase();
+  // doc.text(category, 20, ly);
 
   ly += 12;
   doc.setFont("Quicksand-Bold");

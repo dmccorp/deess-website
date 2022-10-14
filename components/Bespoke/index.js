@@ -10,7 +10,7 @@ export default function Bespoke() {
   return (
     <Layout>
       <Head>
-        <title>Bespoke - {siteName}</title>
+        <title>Bespoke | {siteName}</title>
       </Head>
       <div className={styles.container}>
         <div className={styles.top}>

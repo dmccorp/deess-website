@@ -27,7 +27,7 @@ const ContactUs = () => {
   return (
     <Layout>
       <Head>
-        <title>Contact us - ${siteName}</title>
+        <title>Contact us | {siteName}</title>
       </Head>
       <div className={styles.container}>
         <div className={styles.head}>

@@ -43,7 +43,7 @@ export default function Products({
   return (
     <Layout>
       <Head>
-        <title>Products - ${siteName}</title>
+        <title>Products | {siteName}</title>
       </Head>
       <div className={styles.container}>
         <Tags

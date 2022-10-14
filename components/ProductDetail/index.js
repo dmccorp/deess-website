@@ -19,7 +19,7 @@ export default function ProductDetail({ product }) {
     <Layout>
       <Head>
         <title>
-          {product.name} - ${siteName}
+          {product.name} | {siteName}
         </title>
       </Head>
       <div className={styles.container}>

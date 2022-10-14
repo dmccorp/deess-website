@@ -34,7 +34,7 @@ export default function Downloads() {
   return (
     <Layout>
       <Head>
-        <title>Download - {siteName}</title>
+        <title>Download | {siteName}</title>
       </Head>
       <div className={styles.container}>
         <div className={styles.row}>

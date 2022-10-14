@@ -7,7 +7,7 @@ export default function AboutUsPage() {
   return (
     <Layout>
       <Head>
-        <title>About Us - {siteName}</title>
+        <title>About Us | {siteName}</title>
       </Head>
       <AboutUs />
     </Layout>

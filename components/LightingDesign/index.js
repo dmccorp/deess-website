@@ -48,7 +48,7 @@ export default function LightingDesign() {
   return (
     <Layout>
       <Head>
-        <title>Lighting design - ${siteName}</title>
+        <title>Lighting design | {siteName}</title>
       </Head>
       <div className={styles.container}>
         <div className={styles.head}>
