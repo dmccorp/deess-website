@@ -14,9 +14,12 @@
 .products {
   padding: 40px 20px 0;
   display: grid;
-  grid-template-columns: repeat(2, calc(50% - 3px));
-  gap: 6px;
+  // 2 / 2 = 1px
+  grid-template-columns: repeat(2, calc(50% - 1px));
+  gap: 2px;
   @media screen and (min-width: 800px) {
-    grid-template-columns: repeat(5, 235.2px);
+    // 1200 - 2 * 4 column gaps = 1192
+    // 1192 / 5 = 238.4
+    grid-template-columns: repeat(5, 238.4px);
   }
 }
