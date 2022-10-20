@@ -17,11 +17,11 @@ export default function Product({ product }) {
           </div>
           <div className={styles.text}>
             <figcaption>{product.name}</figcaption>
-            {/* <div>
+            <div>
               {product.categories.data
                 .map((category) => category.attributes.name)
                 .join(", ")}
-            </div> */}
+            </div>
           </div>
           <div
             className={classNames(styles.overlay, {
