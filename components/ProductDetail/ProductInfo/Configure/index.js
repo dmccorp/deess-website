@@ -206,7 +206,7 @@ export default function Configure({ product }) {
                     <img src={download.src} alt="download" />
                   )}
                 </span>
-                Download details
+                Download Datasheet
               </button>
             </div>
             <div>
