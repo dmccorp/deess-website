@@ -26,6 +26,10 @@ const links = [
     label: "Products",
   },
   {
+    link: "/about-us",
+    label: "About us",
+  },
+  {
     link: "/bespoke",
     label: "Bespoke",
   },
@@ -36,10 +40,6 @@ const links = [
   {
     link: "/contact-us",
     label: "Contact us",
-  },
-  {
-    link: "/about-us",
-    label: "About us",
   },
   {
     link: "/downloads",
