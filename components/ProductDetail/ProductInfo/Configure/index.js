@@ -86,7 +86,7 @@ function Colors() {
 function getProductCode(product, selection) {
   const cct = selection.cct.slice(0, 2); // 2700 -> 27
   const beamAngle = selection.beamAngle?.slice(0, -1); // 180° -> 180
-  let driver = DRIVERS[selection.drivers.slice(4).slice(0, -7)] || "";
+  let driver = DRIVERS[selection.drivers.slice(0, -7)] || ""; // 0-10V driver -> 0-10V
   return `${product.code}-${cct}${selection.cri}${beamAngle || ""}${driver}-${
     selection.color
   }`;
@@ -187,7 +187,7 @@ export default function Configure({ product }) {
                 name="drivers"
                 options={[
                   ...Object.keys(DRIVERS).map(
-                    (driver) => `TCI ${driver} driver`
+                    (driver) => `${driver} driver`
                   ),
                   "No driver",
                 ]}
