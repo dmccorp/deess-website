@@ -19,6 +19,31 @@ const AboutUs = () => {
               </div>
               <div className={styles.pad}>
                 <p>
+                  Deess was founded as a brand in 2015 in Belgium, by a team
+                  with more than 20 years of experience in manufacturing
+                  lighting fixtures. Our journey is marked by two fundamental
+                  approaches: close collaboration with architects, engineers and
+                  designers to create customized solutions for each project, and
+                  a constant desire to excel.
+                </p>
+                <p>
+                  We tend to minimize the fitting dimensions, and maximize the
+                  performance. We are focusing on minimum glare, discreet and
+                  ultra- modern designs, combined with the highest luminous
+                  flux.
+                </p>
+                <p>
+                  We believe that design is about more than just aesthetics.
+                  It&apos;s about the balance between design in combination with
+                  optics, electronics and finishing. The final products are
+                  always a perfect match combining all the values.
+                </p>
+                <p>
+                  Deess designs products with precision in mind—from their final
+                  form to their effect on your life—so that you can enjoy the
+                  best possible experience every time you use them.
+                </p>
+                <p>
                   Déess was born from a search for something poetic, modern and
                   minimal. The result is elegant and sophisticated minimalist
                   light fixtures. Each fixture creates internal glow that will
@@ -34,31 +59,6 @@ const AboutUs = () => {
                   life&apos;s pleasures. With our modern designs and
                   cutting-edge technology, each fixture is engineered with your
                   comfort in mind.
-                </p>
-                <p>
-                  Déess aims to offer the most attractive, modern and innovative
-                  lighting products. This is our mission, and we stand behind it
-                  with the utmost commitment, constantly aiming to surpass
-                  customer expectations. Our products are aimed at sophisticated
-                  customers who appreciate innovative design, craftsmanship and
-                  quality.
-                </p>
-                <p>
-                  Déess resonates with the spirit and passion needed for light
-                  fixtures to feel like an art. The company&apos;s mission is to
-                  create modern, minimal and astonishing finishes by offering
-                  products of highest quality at an affordable price. Déess
-                  intends to become a benchmark within the lighting market by
-                  delivering contemporary designs, high quality standards and a
-                  distinctive identity.
-                </p>
-                <p>
-                  Our ambition is to create lighting that makes a statement.
-                  Light fixtures that are unique and personal to you. We combine
-                  minimalism and elegance with every fixture tailored to you. We
-                  pride ourselves on being a premium brand with an eye on
-                  quality. Our products are designed in Belgium, manufactured at
-                  our factories across Europe and assembled locally by experts.{" "}
                 </p>
               </div>
             </div>
