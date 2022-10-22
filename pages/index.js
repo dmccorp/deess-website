@@ -10,7 +10,9 @@ export async function getServerSideProps() {
   });
   return {
     props: {
-      products: products.data,
+      products: products.data.filter(
+        (product) => product.attributes.displayImages.data !== null
+      ),
       newProducts: newProducts.data,
     },
   };
