@@ -18,13 +18,11 @@ const Craft = () => {
           </div>
           <div className={styles.pad}>
             <p>
-              Déess is a Bespoke Lighting company based in Belgium, we work with
-              our skilled craftsmen to provide you the most beautiful bespoke
-              lighting. We can design any piece you imagine and create your
-              dream lighting to fit your style.. Déess is committed to providing
-              only the finest quality craftsmanship, materials and finishes
-              available. Our team will work with you on every step of your
-              project so that you are happy with your final piece.
+              Déess aims to offer the most attractive, modern and innovative
+              lighting products. This is our mission, and we stand behind it
+              with the utmost commitment, constantly aiming to surpass customer
+              expectations. Our products are aimed at sophisticated customers
+              who appreciate innovative design, craftsmanship and quality.
             </p>
           </div>
           <div className={styles.link}>
@@ -32,7 +30,13 @@ const Craft = () => {
           </div>
         </div>
         <div className={`${styles.lImg} ${styles.col}`}>
-          <Image src={lightsL.src} layout="fill" objectFit="contain" objectPosition="right" alt="lights" />
+          <Image
+            src={lightsL.src}
+            layout="fill"
+            objectFit="contain"
+            objectPosition="right"
+            alt="lights"
+          />
         </div>
       </div>
     </div>
