@@ -1,0 +1,71 @@
+.section {
+  text-align: center;
+  @media screen and (min-width: 800px) {
+    text-align: left;
+  }
+  padding: 80px 0;
+  background: #f7f7f7;
+  p {
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0;
+  }
+  .pad {
+    padding: 40px;
+    @media screen and (min-width: 800px) {
+      padding: 0 80px 80px;
+    }
+  }
+}
+
+.spHead {
+  padding-bottom: 40px;
+  @media screen and (min-width: 800px) {
+    padding-left: 80px;
+  }
+  h1 {
+    font-size: 46px;
+    margin: 0;
+    @media screen and (min-width: 800px) {
+      font-size: 70px;
+    }
+  }
+  span {
+    font-size: 28px;
+    font-weight: 400;
+  }
+}
+
+.lImg {
+  display: none;
+  @media screen and (min-width: 800px) {
+    display: initial;
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .rowL {
+    display: flex;
+    .sImg {
+      display: none;
+    }
+  }
+
+  .col {
+    flex: 1;
+    &:last-child {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  @media screen and (min-width: 800px) {
+    justify-content: flex-start;
+    padding-left: 80px;
+  }
+}

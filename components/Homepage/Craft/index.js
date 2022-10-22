@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 import Image from "next/image";
 import lights from "./lights.webp";
 import lightsL from "./lightsL.webp";
@@ -32,7 +32,7 @@ const Craft = () => {
           </div>
         </div>
         <div className={`${styles.lImg} ${styles.col}`}>
-          <Image src={lightsL.src} width={511} height={790} alt="lights" />
+          <Image src={lightsL.src} layout="fill" objectFit="contain" objectPosition="right" alt="lights" />
         </div>
       </div>
     </div>

@@ -39,7 +39,7 @@ const Catalog = ({ products }) => {
   const [slides, setSlides] = useState(2);
   useEffect(() => setSlides(parseInt(window.innerWidth / 200)), []);
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.padH}>
         <div className={styles.regHead}>
           <div>Creating light</div>
