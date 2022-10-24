@@ -53,7 +53,7 @@ export const useLayoutContext = () => useContext(LayoutContext);
 
 const theme = createTheme({
   typography: {
-    fontFamily: "Quicksand",
+    fontFamily: "Futura",
   },
 });
 

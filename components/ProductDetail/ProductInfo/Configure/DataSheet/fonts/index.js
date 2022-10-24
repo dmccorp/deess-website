@@ -1,3 +1,3 @@
-import "./Quicksand-Regular-normal";
-import "./Quicksand-SemiBold-normal";
-import "./Quicksand-Bold-normal";
+import "./Futura Light-normal";
+import "./Futura Book-normal";
+import "./Futura Medium-normal";

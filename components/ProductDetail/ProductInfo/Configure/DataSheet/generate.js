@@ -60,27 +60,27 @@ export async function generatePDF(product, selection) {
   function addCharacteristic(key, value = "", y) {
     const keyWidth = 35;
     const spacing = 3;
+    doc.setFont("Futura Medium");
     const lines = doc.splitTextToSize(key, keyWidth);
     doc.setTextColor("#000");
     doc.setFontSize(9);
     const x = 20;
     lines.forEach((line, i) => {
-      doc.setFont("Quicksand-Bold");
       doc.text(line, x, y + i * spacing);
     });
 
-    doc.setFont("Quicksand-Regular");
+    doc.setFont("Futura Light");
     doc.text(value, x + keyWidth, y);
     return y + (lines.length - 1) * spacing;
   }
   const doc = new jsPDF();
   let ly = 45;
-  doc.setFont("Quicksand-Bold");
+  doc.setFont("Futura Medium");
   doc.setFontSize(25);
   doc.text(product.name, 20, ly);
 
   ly += 7;
-  // doc.setFont("Quicksand-SemiBold");
+  // doc.setFont("Futura Book");
   // doc.setFontSize(11);
   // doc.setTextColor("#B6B6B6");
   // const category = product.categories.data
@@ -90,18 +90,18 @@ export async function generatePDF(product, selection) {
   // doc.text(category, 20, ly);
 
   ly += 12;
-  doc.setFont("Quicksand-Bold");
+  doc.setFont("Futura Medium");
   doc.setTextColor("#000");
   doc.setFontSize(11);
   let label = "Product code -";
   doc.text(label, 20, ly);
-  doc.setFont("Quicksand-Regular");
-  doc.setTextColor("#303030");
   const width = doc.getTextWidth(label);
+  doc.setFont("Futura Light");
+  doc.setTextColor("#303030");
   doc.text(selection.code, 20 + width + 2, ly);
 
   ly += 12;
-  doc.setFont("Quicksand-Bold");
+  doc.setFont("Futura Medium");
   doc.setTextColor("#B8A078");
   doc.setFontSize(11);
   doc.text("Technical Specifications", 20, ly);
@@ -121,7 +121,7 @@ export async function generatePDF(product, selection) {
   );
 
   ly += illumination.length * spacing + 10;
-  doc.setFont("Quicksand-Bold");
+  doc.setFont("Futura Medium");
   doc.setTextColor("#B8A078");
   doc.setFontSize(11);
   doc.text("Dimensions", 20, ly);
@@ -149,18 +149,18 @@ export async function generatePDF(product, selection) {
     });
   }
 
-  doc.setFont("Quicksand-Bold");
+  doc.setFont("Futura Medium");
   doc.setTextColor("#000");
   doc.setFontSize(8);
   doc.text("ADDRESS", 115, 270);
-  doc.setFont("Quicksand-SemiBold");
+  doc.setFont("Futura Book");
   doc.setTextColor("#858080");
   doc.text("DEESS BV, TER WAARDE 50,\n8900 IEPER, BELGIUM", 115, 278);
 
-  doc.setFont("Quicksand-Bold");
+  doc.setFont("Futura Medium");
   doc.setTextColor("#000");
   doc.text("CONTACT", 165, 270);
-  doc.setFont("Quicksand-SemiBold");
+  doc.setFont("Futura Book");
   doc.setTextColor("#858080");
   doc.text("info@deess.be", 165, 278);
 
