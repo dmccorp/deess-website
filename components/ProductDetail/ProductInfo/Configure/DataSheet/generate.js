@@ -135,7 +135,7 @@ export async function generatePDF(product, selection) {
     const first = product.cutoutDimensions[0];
     addCharacteristic(
       "Cut-out dimensions",
-      first.name ? `${first.name} - ${first.value}` : first.value,
+      first.value ? `${first.name} - ${first.value}` : first.name,
       ly
     );
     ly = ly + spacing;
