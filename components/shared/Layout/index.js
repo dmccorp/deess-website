@@ -13,11 +13,31 @@ import Search from "./Search";
 import { createTheme, ThemeProvider } from "@mui/material";
 
 const socialIcons = [
-  { href: "", name: "Twitter", img: social.twitter },
-  { href: "", name: "Instagram", img: social.insta },
-  { href: "", name: "Facebook", img: social.fb },
-  { href: "", name: "Youtube", img: social.yt },
-  { href: "", name: "Pinterest", img: social.pinterest },
+  {
+    href: "https://twitter.com/DeessLighting",
+    name: "Twitter",
+    img: social.twitter,
+  },
+  {
+    href: "https://www.instagram.com/deess.light/",
+    name: "Instagram",
+    img: social.insta,
+  },
+  {
+    href: "https://www.facebook.com/profile.php?id=100087245463479",
+    name: "Facebook",
+    img: social.fb,
+  },
+  {
+    href: "https://www.youtube.com/channel/UCmKFGktdnHP73Ej36EwZ8tg",
+    name: "Youtube",
+    img: social.yt,
+  },
+  {
+    href: "https://www.pinterest.com/deesslighting/",
+    name: "Pinterest",
+    img: social.pinterest,
+  },
 ];
 
 const links = [
@@ -202,7 +222,12 @@ export default function Layout({ children, fixedHead }) {
                 <div className={styles.listHead}>Follow us</div>
                 <div className={styles.icons}>
                   {socialIcons.map((link) => (
-                    <a href={link.href} key={link.name}>
+                    <a
+                      href={link.href}
+                      key={link.name}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <Image
                         width={20}
                         height={20}
