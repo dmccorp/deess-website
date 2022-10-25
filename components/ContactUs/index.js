@@ -8,7 +8,7 @@ import { siteName } from "lib/constants";
 const contactInfo = [
   {
     head: "Address",
-    content: "DEESS BV, TER WAARDE 50, 8900 IEPER, BELGIUM",
+    content: "DÉESS BV, TER WAARDE 50, 8900 IEPER, BELGIUM",
     icon: icons.location,
   },
   {

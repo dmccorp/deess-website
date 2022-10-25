@@ -134,7 +134,7 @@ export default function LightingDesign() {
             }}
           >
             <Typography variant="h6" sx={{ mb: 2 }}>
-              We thank you for your interest in Deess.
+              We thank you for your interest in Déess.
             </Typography>
             <Typography>
               One of our representatives will contact you with more information.

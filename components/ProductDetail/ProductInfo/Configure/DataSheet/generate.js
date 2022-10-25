@@ -155,7 +155,7 @@ export async function generatePDF(product, selection) {
   doc.text("ADDRESS", 115, 270);
   doc.setFont("Futura Book");
   doc.setTextColor("#858080");
-  doc.text("DEESS BV, TER WAARDE 50,\n8900 IEPER, BELGIUM", 115, 278);
+  doc.text("DÉESS BV, TER WAARDE 50,\n8900 IEPER, BELGIUM", 115, 278);
 
   doc.setFont("Futura Medium");
   doc.setTextColor("#000");

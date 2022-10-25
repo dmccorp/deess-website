@@ -108,7 +108,7 @@ export default function Layout({ children, fixedHead }) {
                   src={fixedHead ? lightLogo.src : logo.src}
                   width={94}
                   height={21}
-                  alt="Deess Logo"
+                  alt="Déess Logo"
                 />
               </div>
             </Link>
@@ -159,13 +159,13 @@ export default function Layout({ children, fixedHead }) {
                   src={logo.src}
                   width={139}
                   height={29}
-                  alt="Deess Logo"
+                  alt="Déess Logo"
                 />
               </div>
               <div className={`${styles.space} ${styles.textL}`}>
                 <div className={styles.listHead}>Address</div>
                 <div className={`${styles.listItem} ${styles.minText}`}>
-                  <p>DEESS BV, TER WAARDE 50, 8900 IEPER, BELGIUM</p>
+                  <p>DÉESS BV, TER WAARDE 50, 8900 IEPER, BELGIUM</p>
                 </div>
               </div>
             </div>
@@ -215,7 +215,7 @@ export default function Layout({ children, fixedHead }) {
               <div className={`${styles.space} ${styles.textS}`}>
                 <div className={styles.listHead}>Address</div>
                 <div className={`${styles.listItem} ${styles.minText}`}>
-                  <p>DEESS BV, TER WAARDE 50, 8900 IEPER, BELGIUM</p>
+                  <p>DÉESS BV, TER WAARDE 50, 8900 IEPER, BELGIUM</p>
                 </div>
               </div>
               <div className={styles.space}>

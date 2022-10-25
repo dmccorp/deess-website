@@ -90,7 +90,7 @@ export default function DataSheet({ product, selection }) {
           <div>
             <h4>ADDRESS</h4>
             <div className={styles.text}>
-              DEESS BV, TER WAARDE 50,
+              DÉESS BV, TER WAARDE 50,
               <br /> 8900 IEPER, BELGIUM
             </div>
           </div>

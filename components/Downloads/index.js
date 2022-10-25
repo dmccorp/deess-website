@@ -95,7 +95,7 @@ export default function Downloads() {
             }}
           >
             <Typography variant="h6" sx={{ mb: 2 }}>
-              We thank you for your interest in Deess.
+              We thank you for your interest in Déess.
             </Typography>
             <Typography>
               You will receive an email soon, with a link to download our
