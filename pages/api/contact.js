@@ -1,7 +1,8 @@
+const SibApiV3Sdk = require("sib-api-v3-sdk");
+
 export default function handler(req, res) {
   const { name, email, message } = req.body;
 
-  const SibApiV3Sdk = require("sib-api-v3-sdk");
   let defaultClient = SibApiV3Sdk.ApiClient.instance;
 
   let apiKey = defaultClient.authentications["api-key"];
