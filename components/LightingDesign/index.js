@@ -1,5 +1,6 @@
 import { CircularProgress, Modal, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import classNames from "classnames";
 import Button from "components/shared/Button";
 import Layout from "components/shared/Layout";
 import { siteName } from "lib/constants";
@@ -7,24 +8,49 @@ import Head from "next/head";
 import { useRef, useState } from "react";
 import styles from "./styles.module.scss";
 
+function getBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () =>
+      resolve({
+        name: file.name,
+        content: reader.result.slice(reader.result.indexOf(",")),
+      });
+    reader.onerror = (error) => reject(error);
+  });
+}
+
 function Upload() {
   const file = useRef();
   const [filename, setFilename] = useState("");
+  const [invalid, setInvalid] = useState(false);
   const changeFile = (e) => {
-    setFilename(e.target.files[0].name);
+    if (e.target.files.length) {
+      setFilename(e.target.files[0].name);
+      setInvalid(false);
+    }
   };
   return (
     <div className={styles.field}>
-      <div className={styles.upload} onClick={() => file.current.click()}>
+      <div
+        className={classNames(styles.upload, { [styles.error]: invalid })}
+        onClick={() => file.current.click()}
+      >
         <div>
-          {filename ? `Selected: ${filename}` : "CAD (.dwg) file of the design"}
+          {filename
+            ? `Selected: ${filename}`
+            : "Zip containing CAD (.dwg) files of the design"}
         </div>
         <input
           type="file"
           style={{ display: "none" }}
           ref={file}
           onChange={changeFile}
-          accept=".dwg"
+          accept=".zip"
+          name="designFiles"
+          required
+          onInvalid={(e) => setInvalid(e.target.validity.valid)}
         />
       </div>
     </div>
@@ -34,16 +60,31 @@ function Upload() {
 export default function LightingDesign() {
   const [submitted, setSubmitted] = useState(false);
   const [busy, setBusy] = useState(false);
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = {};
-    formData.forEach((value, key) => (data[key] = value));
+    if (busy) return;
     setBusy(true);
-    setTimeout(() => {
-      setBusy(false);
+    const formData = new FormData(e.target);
+    const plainFormData = Object.fromEntries(formData.entries());
+    delete plainFormData.designFiles;
+    plainFormData.attachments = await Promise.all(
+      [...e.target.designFiles.files].map((file) => getBase64(file))
+    );
+    const body = JSON.stringify(plainFormData);
+
+    const rsp = await fetch("/api/lighting-design", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body,
+    });
+    if (rsp.ok) {
       setSubmitted(true);
-    }, 2000);
+      e.target.reset();
+    }
+    setBusy(false);
   };
   return (
     <Layout>
@@ -81,7 +122,7 @@ export default function LightingDesign() {
             <div className={styles.row}>
               <div className={styles.field}>
                 <label>Email</label>
-                <input type="text" name="email" required />
+                <input type="email" name="email" required />
               </div>
               <div className={styles.field}>
                 <label>Phone</label>
@@ -89,7 +130,12 @@ export default function LightingDesign() {
               </div>
               <div className={styles.field}>
                 <label>Required design date by</label>
-                <input type="date" placeholder="dd/mm/yy" />
+                <input
+                  type="date"
+                  name="required_by"
+                  placeholder="dd/mm/yy"
+                  required
+                />
               </div>
               <div className={styles.field}></div>
             </div>
@@ -97,8 +143,6 @@ export default function LightingDesign() {
           <div>
             <h3>Upload files</h3>
             <div className={styles.row}>
-              <Upload />
-              <Upload />
               <Upload />
             </div>
             <div className={styles.foot}>
