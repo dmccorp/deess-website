@@ -20,16 +20,26 @@ const options = [
 export default function Downloads() {
   const [submitted, setSubmitted] = useState(false);
   const [busy, setBusy] = useState(false);
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = {};
-    formData.forEach((value, key) => (data[key] = value));
+    if (busy) return;
     setBusy(true);
-    setTimeout(() => {
-      setBusy(false);
+    const formData = new FormData(e.target);
+    const plainFormData = Object.fromEntries(formData.entries());
+    const body = JSON.stringify(plainFormData);
+    const rsp = await fetch("/api/download", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body,
+    });
+    if (rsp.ok) {
       setSubmitted(true);
-    }, 2000);
+      setBusy(false);
+      e.target.reset();
+    }
   };
   return (
     <Layout>
@@ -52,14 +62,14 @@ export default function Downloads() {
             </div>
             <div className={styles.row}>
               <div className={styles.field}>
-                <Input label="Company" type="text" />
+                <Input label="Company" type="text" name="company" />
               </div>
               <Select
                 options={options.map((option) => ({
                   label: option,
                   value: option,
                 }))}
-                name="type"
+                name="occupation"
               />
             </div>
             <div>
