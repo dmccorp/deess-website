@@ -4,7 +4,7 @@ import icons from "./icons";
 import Head from "next/head";
 import Button from "components/shared/Button";
 import { siteName } from "lib/constants";
-import { Modal, Typography } from "@mui/material";
+import { CircularProgress, Modal, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState } from "react";
 
@@ -28,8 +28,11 @@ const contactInfo = [
 
 const ContactUs = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [busy, setBusy] = useState(false);
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (busy) return;
+    setBusy(true);
     const formData = new FormData(e.target);
     const plainFormData = Object.fromEntries(formData.entries());
     const body = JSON.stringify(plainFormData);
@@ -43,6 +46,7 @@ const ContactUs = () => {
     });
     if (rsp.ok) {
       setSubmitted(true);
+      setBusy(false);
       e.target.reset();
     }
   };
@@ -79,7 +83,21 @@ const ContactUs = () => {
               </div>
             </div>
             <div>
-              <Button>Send</Button>
+              <Button>
+                {busy ? (
+                  <div
+                    style={{
+                      display: "flex",
+                      height: "50px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <CircularProgress sx={{ color: "white" }} size={25} />
+                  </div>
+                ) : (
+                  "Send"
+                )}
+              </Button>
             </div>
           </form>
           <div className={styles.contactInfo}>
