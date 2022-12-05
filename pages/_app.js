@@ -14,6 +14,10 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, user-scalable=no"
+      />
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_ID}`}
         strategy="afterInteractive"
