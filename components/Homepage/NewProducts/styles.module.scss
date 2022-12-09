@@ -3,7 +3,13 @@
   margin: auto;
   padding: 0 40px 80px;
   @media screen and (min-width: 800px) {
+    padding: 0 30px 80px;
+  }
+  @media screen and (min-width: 1200px) {
     padding: 0 0 80px;
+  }
+  @media screen and (min-width: 1800px) {
+    max-width: 1600px;
   }
   h1 {
     font-size: 50px;
@@ -12,9 +18,15 @@
   .products {
     @media screen and (min-width: 800px) {
       display: grid;
-      grid-template-columns: repeat(4, 283.5px);
+      grid-template-columns: repeat(2, 367px);
       gap: 22px;
       padding: 0 0 60px;
+    }
+    @media screen and (min-width: 1200px) {
+      grid-template-columns: repeat(4, 283.5px);
+    }
+    @media screen and (min-width: 1800px) {
+      grid-template-columns: repeat(5, 302.4px);
     }
   }
   .foot {
