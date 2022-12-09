@@ -16,11 +16,19 @@
     margin: 0 0 70px;
   }
   .products {
-    @media screen and (min-width: 800px), screen and (orientation: landscape) {
+    @media screen and (min-width: 600px) {
       display: grid;
-      grid-template-columns: repeat(2, 367px);
       gap: 22px;
+    }
+    @media screen and (min-width: 750px) and (orientation: landscape) {
+      grid-template-columns: repeat(2, 324px);
+    }
+    @media screen and (min-width: 800px) {
+      grid-template-columns: repeat(2, 359px);
       padding: 0 0 60px;
+    }
+    @media screen and (min-width: 1000px) {
+      grid-template-columns: repeat(2, 459px);
     }
     @media screen and (min-width: 1200px) {
       grid-template-columns: repeat(4, 283.5px);
