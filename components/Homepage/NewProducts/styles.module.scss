@@ -16,7 +16,7 @@
     margin: 0 0 70px;
   }
   .products {
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 800px), screen and (orientation: landscape) {
       display: grid;
       grid-template-columns: repeat(2, 367px);
       gap: 22px;
